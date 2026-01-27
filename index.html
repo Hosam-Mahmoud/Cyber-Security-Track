@@ -1,0 +1,1979 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BrightMinds - Cyber Security Track</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&family=Orbitron:wght@400;600;700&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Animate CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    
+    <style>
+        :root {
+            --primary-color: #00d4ff;
+            --secondary-color: #6a11cb;
+            --accent-color: #ff0080;
+            --dark-bg: #0a0a0f;
+            --darker-bg: #05050a;
+            --card-bg: #12121f;
+            --card-border: #1a1a2e;
+            --text-color: #e6e6ff;
+            --text-muted: #a0a0cc;
+            --success-color: #00ff88;
+            --warning-color: #ffcc00;
+            --danger-color: #ff4757;
+            --cyber-gradient: linear-gradient(135deg, #00d4ff, #6a11cb, #ff0080);
+            --cyber-blue: rgba(0, 212, 255, 0.1);
+            --cyber-purple: rgba(106, 17, 203, 0.1);
+            --cyber-pink: rgba(255, 0, 128, 0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Cairo', 'Tajawal', sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text-color);
+            line-height: 1.7;
+            direction: rtl;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(0, 212, 255, 0.05) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(255, 0, 128, 0.05) 0%, transparent 20%),
+                radial-gradient(circle at 50% 50%, rgba(106, 17, 203, 0.05) 0%, transparent 30%);
+        }
+        
+        /* Cyber Grid Background */
+        .cyber-grid {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(0, 212, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 212, 255, 0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        /* Header Styles */
+        .main-header {
+            background: linear-gradient(135deg, var(--darker-bg) 0%, #0f0f1f 100%);
+            border-bottom: 1px solid rgba(0, 212, 255, 0.2);
+            padding: 1.2rem 0;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+        }
+        
+        .header-glow {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(ellipse at center, rgba(0, 212, 255, 0.1) 0%, transparent 70%);
+            z-index: 0;
+        }
+        
+        .team-name {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 800;
+            font-size: 2.8rem;
+            background: var(--cyber-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+        
+        .track-name {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.6rem;
+            color: var(--accent-color);
+            border-right: 3px solid var(--accent-color);
+            padding-right: 15px;
+            text-shadow: 0 0 10px rgba(255, 0, 128, 0.3);
+        }
+        
+        .team-members {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .member-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 12px 20px;
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            transition: all 0.4s ease;
+            min-width: 170px;
+            text-align: center;
+            backdrop-filter: blur(5px);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .member-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, transparent, rgba(0, 212, 255, 0.1), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.6s ease;
+        }
+        
+        .member-card:hover::before {
+            transform: translateX(100%);
+        }
+        
+        .member-card:hover {
+            transform: translateY(-8px) scale(1.05);
+            border-color: var(--primary-color);
+            box-shadow: 0 10px 20px rgba(0, 212, 255, 0.2);
+        }
+        
+        .member-name {
+            font-weight: 700;
+            color: var(--text-color);
+            font-size: 1.1rem;
+        }
+        
+        .cyber-icon {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            background: var(--cyber-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            filter: drop-shadow(0 0 8px rgba(0, 212, 255, 0.5));
+        }
+        
+        /* Motivation Section */
+        .motivation-section {
+            background: linear-gradient(135deg, var(--cyber-blue), var(--cyber-purple));
+            border-radius: 20px;
+            padding: 30px;
+            margin: 30px 0;
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .motivation-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--cyber-gradient);
+        }
+        
+        .motivation-text {
+            font-size: 1.3rem;
+            text-align: center;
+            color: var(--text-color);
+            font-weight: 500;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .motivation-text i {
+            color: var(--accent-color);
+            margin: 0 10px;
+        }
+        
+        /* Progress Section */
+        .progress-container {
+            background-color: var(--card-bg);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 30px;
+            border: 1px solid var(--card-border);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .progress-container::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--cyber-gradient);
+        }
+        
+        .progress-label {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+        
+        .progress-bar {
+            height: 16px;
+            border-radius: 8px;
+            background-color: rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            border: 1px solid rgba(0, 212, 255, 0.3);
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: var(--cyber-gradient);
+            border-radius: 8px;
+            width: 0%;
+            transition: width 0.8s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .progress-fill::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            animation: shimmer 2s infinite;
+        }
+        
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+        
+        .progress-stats {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 15px;
+            font-size: 1rem;
+            color: var(--text-muted);
+        }
+        
+        .progress-status {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+        
+        /* Week Content */
+        .week-section {
+            margin-bottom: 35px;
+        }
+        
+        .week-header {
+            background: linear-gradient(135deg, var(--card-bg), #151525);
+            border-radius: 15px 15px 0 0;
+            padding: 20px 25px;
+            cursor: pointer;
+            border: 1px solid var(--card-border);
+            border-bottom: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .week-header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.1), transparent);
+            transform: translateX(-100%);
+        }
+        
+        .week-header:hover::before {
+            animation: slide 1s ease;
+        }
+        
+        @keyframes slide {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+        
+        .week-header:hover {
+            background: linear-gradient(135deg, #151525, #1a1a2e);
+            border-color: var(--primary-color);
+        }
+        
+        .week-header h2 {
+            margin: 0;
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+        
+        .week-header i {
+            transition: transform 0.4s ease;
+            font-size: 1.5rem;
+            color: var(--accent-color);
+        }
+        
+        .week-content {
+            background-color: var(--card-bg);
+            border-radius: 0 0 15px 15px;
+            padding: 30px;
+            border: 1px solid var(--card-border);
+            border-top: none;
+            position: relative;
+        }
+        
+        /* Topic Cards */
+        .topic-card {
+            background: linear-gradient(135deg, rgba(18, 18, 31, 0.9), rgba(26, 26, 46, 0.9));
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 25px;
+            border: 1px solid var(--card-border);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .topic-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 5px;
+            height: 100%;
+            background: var(--cyber-gradient);
+        }
+        
+        .topic-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+            border-color: rgba(0, 212, 255, 0.5);
+        }
+        
+        .topic-title {
+            color: var(--primary-color);
+            font-size: 1.6rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            font-weight: 700;
+        }
+        
+        .topic-title i {
+            margin-left: 15px;
+            font-size: 1.8rem;
+        }
+        
+        .topic-goal {
+            background: linear-gradient(90deg, rgba(0, 212, 255, 0.1), transparent);
+            border-right: 4px solid var(--accent-color);
+            padding: 15px 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            position: relative;
+        }
+        
+        .topic-goal::before {
+            content: "🎯";
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.2rem;
+        }
+        
+        .learning-list {
+            list-style-type: none;
+            padding-right: 0;
+        }
+        
+        .learning-list li {
+            padding: 12px 0;
+            border-bottom: 1px dashed rgba(0, 212, 255, 0.2);
+            display: flex;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+        
+        .learning-list li:hover {
+            background-color: rgba(0, 212, 255, 0.05);
+            padding-right: 10px;
+            border-radius: 5px;
+        }
+        
+        .learning-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .check-item {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            width: 100%;
+        }
+        
+        .check-item input {
+            margin-left: 15px;
+            transform: scale(1.3);
+            cursor: pointer;
+        }
+        
+        /* Video List */
+        .video-list {
+            margin-top: 35px;
+        }
+        
+        .video-list-title {
+            color: var(--accent-color);
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            border-right: 4px solid var(--accent-color);
+            padding-right: 15px;
+            font-weight: 700;
+        }
+        
+        .video-card {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            padding: 18px;
+            margin-bottom: 15px;
+            border: 1px solid var(--card-border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .video-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.05), transparent);
+            transform: translateX(-100%);
+        }
+        
+        .video-card:hover::before {
+            animation: slide 1s ease;
+        }
+        
+        .video-card:hover {
+            transform: translateX(-10px);
+            border-color: var(--primary-color);
+            box-shadow: 0 8px 20px rgba(0, 212, 255, 0.1);
+        }
+        
+        .video-info {
+            flex-grow: 1;
+        }
+        
+        .video-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--cyber-gradient);
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            text-align: center;
+            font-weight: 800;
+            margin-left: 15px;
+            font-family: 'Orbitron', sans-serif;
+            box-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+        }
+        
+        .video-title {
+            font-weight: 700;
+            margin-bottom: 5px;
+            font-size: 1.2rem;
+            color: var(--text-color);
+        }
+        
+        .video-desc {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+        
+        .video-actions {
+            display: flex;
+            gap: 10px;
+            flex-shrink: 0;
+        }
+        
+        .btn-cyber {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-cyber::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transform: translateX(-100%);
+        }
+        
+        .btn-cyber:hover::before {
+            animation: slide 0.8s ease;
+        }
+        
+        .btn-cyber:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 212, 255, 0.4);
+        }
+        
+        .btn-outline-cyber {
+            background: transparent;
+            color: var(--success-color);
+            border: 1px solid var(--success-color);
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-outline-cyber:hover {
+            background-color: rgba(0, 255, 136, 0.1);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 255, 136, 0.2);
+        }
+        
+        /* Motivational Cards */
+        .motivational-card {
+            background: linear-gradient(135deg, var(--cyber-blue), var(--cyber-purple));
+            border-radius: 15px;
+            padding: 25px;
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            height: 100%;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .motivational-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--cyber-gradient);
+        }
+        
+        .motivational-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .motivational-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            background: var(--cyber-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .motivational-title {
+            color: var(--primary-color);
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+        
+        /* Footer */
+        .main-footer {
+            background: linear-gradient(135deg, var(--darker-bg), #0f0f1f);
+            border-top: 1px solid rgba(0, 212, 255, 0.2);
+            padding: 30px 0;
+            margin-top: 50px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .footer-glow {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(ellipse at center, rgba(0, 212, 255, 0.05) 0%, transparent 70%);
+            z-index: 0;
+        }
+        
+        .developer-credit {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .developer-credit span {
+            color: var(--accent-color);
+            font-weight: 800;
+            font-family: 'Orbitron', sans-serif;
+        }
+        
+        .footer-icons {
+            margin-top: 20px;
+        }
+        
+        .footer-icons i {
+            font-size: 1.5rem;
+            margin: 0 10px;
+            color: var(--primary-color);
+            transition: all 0.3s ease;
+        }
+        
+        .footer-icons i:hover {
+            color: var(--accent-color);
+            transform: translateY(-5px);
+        }
+        
+        /* Animations */
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(0, 212, 255, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(0, 212, 255, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(0, 212, 255, 0); }
+        }
+        
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        /* Cyber Elements */
+        .cyber-line {
+            height: 2px;
+            background: var(--cyber-gradient);
+            margin: 30px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cyber-line::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, white, transparent);
+            animation: scanline 3s linear infinite;
+        }
+        
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .team-name {
+                font-size: 2.5rem;
+            }
+            
+            .track-name {
+                font-size: 1.4rem;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .team-name {
+                font-size: 2.2rem;
+            }
+            
+            .member-card {
+                min-width: 150px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .team-name {
+                font-size: 2rem;
+                text-align: center;
+            }
+            
+            .track-name {
+                font-size: 1.2rem;
+                text-align: center;
+                border: none;
+                padding-right: 0;
+                margin-bottom: 15px;
+            }
+            
+            .team-members {
+                gap: 10px;
+            }
+            
+            .member-card {
+                min-width: 130px;
+                padding: 10px 15px;
+            }
+            
+            .motivation-section {
+                padding: 20px;
+            }
+            
+            .motivation-text {
+                font-size: 1.1rem;
+            }
+            
+            .week-header h2 {
+                font-size: 1.5rem;
+            }
+            
+            .topic-card {
+                padding: 20px;
+            }
+            
+            .topic-title {
+                font-size: 1.4rem;
+            }
+            
+            .video-card {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .video-actions {
+                margin-top: 15px;
+                width: 100%;
+                justify-content: flex-end;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .team-name {
+                font-size: 1.8rem;
+            }
+            
+            .member-card {
+                min-width: 110px;
+                padding: 8px 12px;
+            }
+            
+            .member-name {
+                font-size: 1rem;
+            }
+            
+            .motivation-section {
+                padding: 15px;
+            }
+            
+            .motivation-text {
+                font-size: 1rem;
+            }
+            
+            .progress-container {
+                padding: 20px;
+            }
+            
+            .week-header {
+                padding: 15px 20px;
+            }
+            
+            .week-header h2 {
+                font-size: 1.3rem;
+            }
+            
+            .week-content {
+                padding: 20px;
+            }
+            
+            .topic-card {
+                padding: 15px;
+            }
+            
+            .topic-title {
+                font-size: 1.2rem;
+            }
+            
+            .video-number {
+                width: 30px;
+                height: 30px;
+                font-size: 0.9rem;
+            }
+            
+            .video-title {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Cyber Grid Background -->
+    <div class="cyber-grid"></div>
+    
+    <!-- Header Section -->
+    <header class="main-header">
+        <div class="header-glow"></div>
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8">
+                    <h1 class="team-name animate__animated animate__fadeInDown">BrightMinds</h1>
+                    <div class="track-name animate__animated animate__fadeInUp">Cyber Security Track</div>
+                    
+                    <div class="team-members animate__animated animate__fadeIn">
+                        <div class="member-card">
+                            <div class="member-name">حسام محمود</div>
+                        </div>
+
+                          <div class="member-card">
+                            <div class="member-name">اسلام حاتم</div>
+                        </div>
+                        <div class="member-card">
+                            <div class="member-name">الاء عماد</div>
+                        </div>
+                        <div class="member-card">
+                            <div class="member-name">علا حسام</div>
+                        </div>
+                      
+                    </div>
+                </div>
+                <div class="col-lg-4 text-center mt-4 mt-lg-0">
+                    <div class="cyber-border p-4 rounded" style="background: rgba(0,0,0,0.3); border: 1px solid rgba(0,212,255,0.3);">
+                        <i class="fas fa-shield-alt cyber-icon"></i>
+                        <h4 style="color: var(--primary-color); font-weight: 700;">رحلة الأمن السيبراني</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Main Content -->
+    <main class="container my-5">
+        <!-- Motivation Section -->
+        <section class="motivation-section animate__animated animate__fadeIn">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <p class="motivation-text">
+                        <i class="fas fa-quote-right"></i>
+                        إذا التزمنا معًا وأكملنا هذه الرحلة التعليمية حتى النهاية، فإننا سنصل بمشيئة الله إلى مستوى عالمي متميز في مجال الأمن السيبراني. 
+                        كل خطوة تزيد من معرفتنا، وكل تحدٍ يقوي مهاراتنا. النجاح ليس وصولاً بل استمرارًا في التعلم والتطوير.
+                        <i class="fas fa-quote-left"></i>
+                    </p>
+                    <div class="text-center mt-3">
+                        <span class="badge bg-primary me-2">فريق واحد</span>
+                        <span class="badge bg-success me-2">هدف واحد</span>
+                        <span class="badge bg-warning">مستقبل مشرق</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Progress Section -->
+        <section class="progress-container animate__animated animate__fadeInUp">
+            <h3 class="mb-4" style="color: var(--primary-color);">
+                <i class="fas fa-chart-line me-2"></i>تقدمك في الأسبوع الأول
+            </h3>
+            
+            <div class="progress-label">
+                <span>الأسبوع الأول - أساسيات الأمن السيبراني</span>
+                <span id="progress-percentage">0%</span>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progress-fill"></div>
+            </div>
+            <div class="progress-stats">
+                <span>مكتمل: <span id="completed-count">0</span> من <span id="total-count">0</span></span>
+                <span class="progress-status" id="progress-status">ابدأ رحلتك الآن!</span>
+            </div>
+        </section>
+        
+        <!-- Cyber Line -->
+        <div class="cyber-line"></div>
+        
+        <!-- Week 1 Content -->
+        <section class="week-section">
+            <div class="week-header" data-bs-toggle="collapse" data-bs-target="#week1-content" aria-expanded="true">
+                <h2><i class="fas fa-calendar-week me-2"></i>الأسبوع الأول - أساسيات الأمن السيبراني</h2>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            
+            <div class="week-content collapse show" id="week1-content">
+                <!-- Networking Fundamentals -->
+                <div class="topic-card">
+                    <div class="topic-title">
+                        <i class="fas fa-network-wired"></i>
+                        Networking Fundamentals - أساسيات الشبكات
+                    </div>
+                    
+                    <div class="topic-goal">
+                        🎯 الهدف: تفهم الشبكة ماشية إزاي علشان تفهم أي هجوم أو دفاع.
+                    </div>
+                    
+                    <h5 class="mb-3" style="color: var(--accent-color);">تعلم بالترتيب:</h5>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <ul class="learning-list">
+                                <li>
+                                    <label class="check-item">
+                                        <input type="checkbox" class="topic-check" data-category="networking" data-id="1">
+                                        TCP / IP
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class="check-item">
+                                        <input type="checkbox" class="topic-check" data-category="networking" data-id="2">
+                                        OSI Model
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class="check-item">
+                                        <input type="checkbox" class="topic-check" data-category="networking" data-id="3">
+                                        Ports & Protocols
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class="check-item">
+                                        <input type="checkbox" class="topic-check" data-category="networking" data-id="4">
+                                        DNS
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class="check-item">
+                                        <input type="checkbox" class="topic-check" data-category="networking" data-id="5">
+                                        HTTP / HTTPS
+                                    </label>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <ul class="learning-list">
+                                <li>
+                                    <label class="check-item">
+                                        <input type="checkbox" class="topic-check" data-category="networking" data-id="6">
+                                        VPN
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class="check-item">
+                                        <input type="checkbox" class="topic-check" data-category="networking" data-id="7">
+                                        Firewalls
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class="check-item">
+                                        <input type="checkbox" class="topic-check" data-category="networking" data-id="8">
+                                        NAT / Proxy
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class="check-item">
+                                        <input type="checkbox" class="topic-check" data-category="networking" data-id="9">
+                                        Load Balancer
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class="check-item">
+                                        <input type="checkbox" class="topic-check" data-category="networking" data-id="10">
+                                        Packet Flow
+                                    </label>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Networking Videos -->
+                    <div class="video-list">
+                        <h5 class="video-list-title">
+                            <i class="fas fa-video me-2"></i>فيديوهات Networking Fundamentals
+                        </h5>
+                        
+                        <div class="video-card">
+                            <div class="video-info">
+                                <span class="video-number">1</span>
+                                <span class="video-title">NAT - ترجمة عناوين الشبكة</span>
+                                <div class="video-desc">شرح مفهوم NAT وكيفية عمله في الشبكات</div>
+                            </div>
+                            <div class="video-actions">
+                                <a href="https://youtu.be/TriqRvr-X_o?si=lc5kYg99b1w4DP53" target="_blank" class="btn btn-cyber btn-sm">
+                                    <i class="fas fa-external-link-alt me-1"></i>شاهد الفيديو
+                                </a>
+                                <label class="btn btn-outline-cyber btn-sm">
+                                    <input type="checkbox" class="d-none video-check" data-category="networking-videos" data-id="1">
+                                    <i class="fas fa-check me-1"></i>أكملت
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="video-card">
+                            <div class="video-info">
+                                <span class="video-number">2</span>
+                                <span class="video-title">TCP/IP و OSI Model - المقارنة</span>
+                                <div class="video-desc">مقارنة بين نموذجي TCP/IP و OSI مع شرح الفروقات</div>
+                            </div>
+                            <div class="video-actions">
+                                <a href="https://youtu.be/MfNheIcKCmM?si=2cD1AsFVBYWdhUOX" target="_blank" class="btn btn-cyber btn-sm">
+                                    <i class="fas fa-external-link-alt me-1"></i>شاهد الفيديو
+                                </a>
+                                <label class="btn btn-outline-cyber btn-sm">
+                                    <input type="checkbox" class="d-none video-check" data-category="networking-videos" data-id="2">
+                                    <i class="fas fa-check me-1"></i>أكملت
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="video-card">
+                            <div class="video-info">
+                                <span class="video-number">3</span>
+                                <span class="video-title">TCP/IP - شرح مفصل</span>
+                                <div class="video-desc">شرح مفصل لبروتوكول TCP/IP وكيفية عمله</div>
+                            </div>
+                            <div class="video-actions">
+                                <a href="https://youtu.be/fiFBpFjfYyo?si=5khdfkeUht5H2-5f" target="_blank" class="btn btn-cyber btn-sm">
+                                    <i class="fas fa-external-link-alt me-1"></i>شاهد الفيديو
+                                </a>
+                                <label class="btn btn-outline-cyber btn-sm">
+                                    <input type="checkbox" class="d-none video-check" data-category="networking-videos" data-id="3">
+                                    <i class="fas fa-check me-1"></i>أكملت
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="video-card">
+                            <div class="video-info">
+                                <span class="video-number">4</span>
+                                <span class="video-title">OSI Model - الشرح الكامل</span>
+                                <div class="video-desc">شرح طبقات OSI Model السبعة بالتفصيل</div>
+                            </div>
+                            <div class="video-actions">
+                                <a href="https://youtu.be/61kRxdZ5p-o?si=OP4iflCTIRKYw9mM" target="_blank" class="btn btn-cyber btn-sm">
+                                    <i class="fas fa-external-link-alt me-1"></i>شاهد الفيديو
+                                </a>
+                                <label class="btn btn-outline-cyber btn-sm">
+                                    <input type="checkbox" class="d-none video-check" data-category="networking-videos" data-id="4">
+                                    <i class="fas fa-check me-1"></i>أكملت
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="video-card">
+                            <div class="video-info">
+                                <span class="video-number">5</span>
+                                <span class="video-title">HTTP و HTTPS - الفرق والأمان</span>
+                                <div class="video-desc">الفرق بين HTTP و HTTPS وكيفية تأمين الاتصالات</div>
+                            </div>
+                            <div class="video-actions">
+                                <a href="https://youtu.be/RxFgqeyXh6c?si=xjYjcI904gvJmAkT" target="_blank" class="btn btn-cyber btn-sm">
+                                    <i class="fas fa-external-link-alt me-1"></i>شاهد الفيديو
+                                </a>
+                                <label class="btn btn-outline-cyber btn-sm">
+                                    <input type="checkbox" class="d-none video-check" data-category="networking-videos" data-id="5">
+                                    <i class="fas fa-check me-1"></i>أكملت
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="video-card">
+                            <div class="video-info">
+                                <span class="video-number">6</span>
+                                <span class="video-title">HTTPS و SSL/TLS - الجزء العملي</span>
+                                <div class="video-desc">شرح عملي لكيفية عمل HTTPS وبروتوكولات SSL/TLS</div>
+                            </div>
+                            <div class="video-actions">
+                                <a href="https://youtu.be/Iws5GpUVnq4?si=1dXIQHzg790jthpi" target="_blank" class="btn btn-cyber btn-sm">
+                                    <i class="fas fa-external-link-alt me-1"></i>شاهد الفيديو
+                                </a>
+                                <label class="btn btn-outline-cyber btn-sm">
+                                    <input type="checkbox" class="d-none video-check" data-category="networking-videos" data-id="6">
+                                    <i class="fas fa-check me-1"></i>أكملت
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="video-card">
+                            <div class="video-info">
+                                <span class="video-number">7</span>
+                                <span class="video-title">VPN - الشبكات الخاصة الافتراضية</span>
+                                <div class="video-desc">ما هو VPN وكيف يعمل لحماية اتصالاتك</div>
+                            </div>
+                            <div class="video-actions">
+                                <a href="https://youtu.be/geQS8wLq9IA?si=gcgkpwJcdbl5C-RD" target="_blank" class="btn btn-cyber btn-sm">
+                                    <i class="fas fa-external-link-alt me-1"></i>شاهد الفيديو
+                                </a>
+                                <label class="btn btn-outline-cyber btn-sm">
+                                    <input type="checkbox" class="d-none video-check" data-category="networking-videos" data-id="7">
+                                    <i class="fas fa-check me-1"></i>أكملت
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="video-card">
+                            <div class="video-info">
+                                <span class="video-number">8</span>
+                                <span class="video-title">DNS - نظام أسماء النطاقات</span>
+                                <div class="video-desc">شرح نظام DNS وكيفية تحويل الأسماء إلى عناوين IP</div>
+                            </div>
+                            <div class="video-actions">
+                                <a href="https://youtu.be/s-9143t3cHA?si=seB_tAlS2iU_dOAI" target="_blank" class="btn btn-cyber btn-sm">
+                                    <i class="fas fa-external-link-alt me-1"></i>شاهد الفيديو
+                                </a>
+                                <label class="btn btn-outline-cyber btn-sm">
+                                    <input type="checkbox" class="d-none video-check" data-category="networking-videos" data-id="8">
+                                    <i class="fas fa-check me-1"></i>أكملت
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="video-card">
+                            <div class="video-info">
+                                <span class="video-number">9</span>
+                                <span class="video-title">SSL/TLS - تأمين الاتصالات</span>
+                                <div class="video-desc">شرح بروتوكولات SSL و TLS لتأمين الاتصالات</div>
+                            </div>
+                            <div class="video-actions">
+                                <a href="https://youtu.be/9EOdDUmAErQ?si=Yz20uv-6p7ry153f" target="_blank" class="btn btn-cyber btn-sm">
+                                    <i class="fas fa-external-link-alt me-1"></i>شاهد الفيديو
+                                </a>
+                                <label class="btn btn-outline-cyber btn-sm">
+                                    <input type="checkbox" class="d-none video-check" data-category="networking-videos" data-id="9">
+                                    <i class="fas fa-check me-1"></i>أكملت
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="video-card">
+                            <div class="video-info">
+                                <span class="video-number">10</span>
+                                <span class="video-title">Load Balancer - موزع الحمل</span>
+                                <div class="video-desc">ما هو موزع الحمل وكيف يعمل لتحسين أداء الخوادم</div>
+                            </div>
+                            <div class="video-actions">
+                                <a href="https://youtu.be/FM0uxryWDGQ?si=FRNja9C6IbuXpMSk" target="_blank" class="btn btn-cyber btn-sm">
+                                    <i class="fas fa-external-link-alt me-1"></i>شاهد الفيديو
+                                </a>
+                                <label class="btn btn-outline-cyber btn-sm">
+                                    <input type="checkbox" class="d-none video-check" data-category="networking-videos" data-id="10">
+                                    <i class="fas fa-check me-1"></i>أكملت
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Operating Systems -->
+                <div class="topic-card">
+                    <div class="topic-title">
+                        <i class="fas fa-desktop"></i>
+                        Operating Systems - أنظمة التشغيل
+                    </div>
+                    
+                    <div class="topic-goal">
+                        🎯 الهدف: تفهم السيستم من جوه مش مستخدم عادي.
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h5 class="mb-3" style="color: var(--warning-color);">Linux (أساسي)</h5>
+                            <ul class="learning-list">
+                                <li>
+                                    <label class="check-item">
+                                        <input type="checkbox" class="topic-check" data-category="os" data-id="1">
+                                        File System
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class="check-item">
+                                        <input type="checkbox" class="topic-check" data-category="os" data-id="2">
+                                        Permissions
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class="check-item">
+                                        <input type="checkbox" class="topic-check" data-category="os" data-id="3">
+                                        Users & Groups
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class="check-item">
+                                        <input type="checkbox" class="topic-check" data-category="os" data-id="4">
+                                        Processes
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class="check-item">
+                                        <input type="checkbox" class="topic-check" data-category="os" data-id="5">
+                                        Services
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class="check-item">
+                                        <input type="checkbox" class="topic-check" data-category="os" data-id="6">
+                                        Networking Commands
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class="check-item">
+                                        <input type="checkbox" class="topic-check" data-category="os" data-id="7">
+                                        Logs
+                                    </label>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <h5 class="mb-3" style="color: var(--warning-color);">Windows (أساسيات)</h5>
+                            <ul class="learning-list">
+                                <li>
+                                    <label class="check-item">
+                                        <input type="checkbox" class="topic-check" data-category="os" data-id="8">
+                                        File System
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class="check-item">
+                                        <input type="checkbox" class="topic-check" data-category="os" data-id="9">
+                                        Registry
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class="check-item">
+                                        <input type="checkbox" class="topic-check" data-category="os" data-id="10">
+                                        Processes & Services
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class="check-item">
+                                        <input type="checkbox" class="topic-check" data-category="os" data-id="11">
+                                        Event Logs
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class="check-item">
+                                        <input type="checkbox" class="topic-check" data-category="os" data-id="12">
+                                        Permissions
+                                    </label>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- OS Videos -->
+                    <div class="video-list">
+                        <h5 class="video-list-title">
+                            <i class="fas fa-video me-2"></i>فيديوهات إضافية للشبكات
+                        </h5>
+                        
+                        <div class="video-card">
+                            <div class="video-info">
+                                <span class="video-number">11</span>
+                                <span class="video-title">فهم الشبكات بشكل عملي</span>
+                                <div class="video-desc">شرح عملي لكيفية عمل الشبكات ومكوناتها</div>
+                            </div>
+                            <div class="video-actions">
+                                <a href="https://youtu.be/ctojbQH5apc?si=gGhbXQmE0nxfB3V5" target="_blank" class="btn btn-cyber btn-sm">
+                                    <i class="fas fa-external-link-alt me-1"></i>شاهد الفيديو
+                                </a>
+                                <label class="btn btn-outline-cyber btn-sm">
+                                    <input type="checkbox" class="d-none video-check" data-category="os-videos" data-id="1">
+                                    <i class="fas fa-check me-1"></i>أكملت
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="video-card">
+                            <div class="video-info">
+                                <span class="video-number">12</span>
+                                <span class="video-title">WiFi و Wireless Networking</span>
+                                <div class="video-desc">أمن الشبكات اللاسلكية ومخاطرها</div>
+                            </div>
+                            <div class="video-actions">
+                                <a href="https://youtu.be/L3Keks1sa6o?si=xAbOgmaIbaXaaWKw" target="_blank" class="btn btn-cyber btn-sm">
+                                    <i class="fas fa-external-link-alt me-1"></i>شاهد الفيديو
+                                </a>
+                                <label class="btn btn-outline-cyber btn-sm">
+                                    <input type="checkbox" class="d-none video-check" data-category="os-videos" data-id="2">
+                                    <i class="fas fa-check me-1"></i>أكملت
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Programming & Scripting -->
+                <div class="topic-card">
+                    <div class="topic-title">
+                        <i class="fas fa-code"></i>
+                        Programming & Scripting - البرمجة والنصوص البرمجية
+                    </div>
+                    
+                    <div class="topic-goal">
+                        🎯 الهدف: تفهم الأدوات، تكتب Scripts، تفهم Exploits و Malware.
+                    </div>
+                    
+                    <h5 class="mb-3" style="color: var(--accent-color);">بالترتيب:</h5>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <ul class="learning-list">
+                                <li>
+                                    <label class="check-item">
+                                        <input type="checkbox" class="topic-check" data-category="programming" data-id="1">
+                                        Python (أساسي)
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class="check-item">
+                                        <input type="checkbox" class="topic-check" data-category="programming" data-id="2">
+                                        Bash Scripting
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class="check-item">
+                                        <input type="checkbox" class="topic-check" data-category="programming" data-id="3">
+                                        C (أساسيات فقط)
+                                    </label>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <h6 class="text-warning mt-3">تعرف:</h6>
+                            <ul class="learning-list">
+                                <li>
+                                    <label class="check-item">
+                                        <input type="checkbox" class="topic-check" data-category="programming" data-id="4">
+                                        Loops
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class="check-item">
+                                        <input type="checkbox" class="topic-check" data-category="programming" data-id="5">
+                                        Conditions
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class="check-item">
+                                        <input type="checkbox" class="topic-check" data-category="programming" data-id="6">
+                                        Functions
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class="check-item">
+                                        <input type="checkbox" class="topic-check" data-category="programming" data-id="7">
+                                        File Handling
+                                    </label>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Security Fundamentals -->
+                <div class="topic-card">
+                    <div class="topic-title">
+                        <i class="fas fa-shield-alt"></i>
+                        Security Fundamentals - أساسيات الأمن
+                    </div>
+                    
+                    <h5 class="mb-3" style="color: var(--accent-color);">تعلم:</h5>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <ul class="learning-list">
+                                <li>
+                                    <label class="check-item">
+                                        <input type="checkbox" class="topic-check" data-category="security" data-id="1">
+                                        CIA Triad
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class="check-item">
+                                        <input type="checkbox" class="topic-check" data-category="security" data-id="2">
+                                        Authentication vs Authorization
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class="check-item">
+                                        <input type="checkbox" class="topic-check" data-category="security" data-id="3">
+                                        Hashing
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class="check-item">
+                                        <input type="checkbox" class="topic-check" data-category="security" data-id="4">
+                                        Encryption
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class="check-item">
+                                        <input type="checkbox" class="topic-check" data-category="security" data-id="5">
+                                        Public / Private Key
+                                    </label>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <ul class="learning-list">
+                                <li>
+                                    <label class="check-item">
+                                        <input type="checkbox" class="topic-check" data-category="security" data-id="6">
+                                        RSA / AES
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class="check-item">
+                                        <input type="checkbox" class="topic-check" data-category="security" data-id="7">
+                                        Digital Signatures
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class="check-item">
+                                        <input type="checkbox" class="topic-check" data-category="security" data-id="8">
+                                        Threat Modeling
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class="check-item">
+                                        <input type="checkbox" class="topic-check" data-category="security" data-id="9">
+                                        Cyber Kill Chain
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class="check-item">
+                                        <input type="checkbox" class="topic-check" data-category="security" data-id="10">
+                                        MITRE ATT&CK Framework
+                                    </label>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Security Videos -->
+                    <div class="video-list">
+                        <h5 class="video-list-title">
+                            <i class="fas fa-video me-2"></i>فيديوهات Security Fundamentals
+                        </h5>
+                        
+                        <div class="video-card">
+                            <div class="video-info">
+                                <span class="video-number">13</span>
+                                <span class="video-title">CIA Triad - ثلاثية الأمن السيبراني</span>
+                                <div class="video-desc">السرية، النزاهة، التوافر - أساسيات أمن المعلومات</div>
+                            </div>
+                            <div class="video-actions">
+                                <a href="https://youtu.be/6x74rlowXtY?si=8M2ohgj52kMyoG0v" target="_blank" class="btn btn-cyber btn-sm">
+                                    <i class="fas fa-external-link-alt me-1"></i>شاهد الفيديو
+                                </a>
+                                <label class="btn btn-outline-cyber btn-sm">
+                                    <input type="checkbox" class="d-none video-check" data-category="security-videos" data-id="1">
+                                    <i class="fas fa-check me-1"></i>أكملت
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="video-card">
+                            <div class="video-info">
+                                <span class="video-number">14</span>
+                                <span class="video-title">Authentication vs Authorization</span>
+                                <div class="video-desc">الفرق بين المصادقة والتفويض في الأنظمة الأمنية</div>
+                            </div>
+                            <div class="video-actions">
+                                <a href="https://youtu.be/8LwodvRgyLE?si=wyCHEK88p5wMcUg7" target="_blank" class="btn btn-cyber btn-sm">
+                                    <i class="fas fa-external-link-alt me-1"></i>شاهد الفيديو
+                                </a>
+                                <label class="btn btn-outline-cyber btn-sm">
+                                    <input type="checkbox" class="d-none video-check" data-category="security-videos" data-id="2">
+                                    <i class="fas fa-check me-1"></i>أكملت
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="video-card">
+                            <div class="video-info">
+                                <span class="video-number">15</span>
+                                <span class="video-title">Authentication و JWT</span>
+                                <div class="video-desc">المصادقة باستخدام JWT (JSON Web Tokens)</div>
+                            </div>
+                            <div class="video-actions">
+                                <a href="https://youtu.be/wDwA7ihoOlc?si=caMZ_oxC2CSX9Ffk" target="_blank" class="btn btn-cyber btn-sm">
+                                    <i class="fas fa-external-link-alt me-1"></i>شاهد الفيديو
+                                </a>
+                                <label class="btn btn-outline-cyber btn-sm">
+                                    <input type="checkbox" class="d-none video-check" data-category="security-videos" data-id="3">
+                                    <i class="fas fa-check me-1"></i>أكملت
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="video-card">
+                            <div class="video-info">
+                                <span class="video-number">16</span>
+                                <span class="video-title">Hashing - التجزئة</span>
+                                <div class="video-desc">ما هو التجزئة (Hashing) في الأمن السيبراني</div>
+                            </div>
+                            <div class="video-actions">
+                                <a href="https://youtu.be/4TBStYr8t4g?si=rI06IRRkGPjlQV9U" target="_blank" class="btn btn-cyber btn-sm">
+                                    <i class="fas fa-external-link-alt me-1"></i>شاهد الفيديو
+                                </a>
+                                <label class="btn btn-outline-cyber btn-sm">
+                                    <input type="checkbox" class="d-none video-check" data-category="security-videos" data-id="4">
+                                    <i class="fas fa-check me-1"></i>أكملت
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="video-card">
+                            <div class="video-info">
+                                <span class="video-number">17</span>
+                                <span class="video-title">Asymmetric Encryption</span>
+                                <div class="video-desc">التشفير غير المتناظر (المفتاح العام/الخاص)</div>
+                            </div>
+                            <div class="video-actions">
+                                <a href="https://youtu.be/8lW2kvCVpHc?si=MIF8AOVfHV4mgA" target="_blank" class="btn btn-cyber btn-sm">
+                                    <i class="fas fa-external-link-alt me-1"></i>شاهد الفيديو
+                                </a>
+                                <label class="btn btn-outline-cyber btn-sm">
+                                    <input type="checkbox" class="d-none video-check" data-category="security-videos" data-id="5">
+                                    <i class="fas fa-check me-1"></i>أكملت
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="video-card">
+                            <div class="video-info">
+                                <span class="video-number">18</span>
+                                <span class="video-title">Digital Signature - التوقيع الرقمي</span>
+                                <div class="video-desc">التوقيع الرقمي وكيف يعمل في تأمين المعاملات</div>
+                            </div>
+                            <div class="video-actions">
+                                <a href="https://youtu.be/lBIPd8qOwAA?si=rPy_QtsFplS6Lw2Q" target="_blank" class="btn btn-cyber btn-sm">
+                                    <i class="fas fa-external-link-alt me-1"></i>شاهد الفيديو
+                                </a>
+                                <label class="btn btn-outline-cyber btn-sm">
+                                    <input type="checkbox" class="d-none video-check" data-category="security-videos" data-id="6">
+                                    <i class="fas fa-check me-1"></i>أكملت
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="video-card">
+                            <div class="video-info">
+                                <span class="video-number">19</span>
+                                <span class="video-title">Threat Modeling - نمذجة التهديدات</span>
+                                <div class="video-desc">كيفية نمذجة التهديدات في الأمن السيبراني</div>
+                            </div>
+                            <div class="video-actions">
+                                <a href="https://youtu.be/SOQrDrLpo8c?si=LQbQ5bFV--0JRvV1" target="_blank" class="btn btn-cyber btn-sm">
+                                    <i class="fas fa-external-link-alt me-1"></i>شاهد الفيديو
+                                </a>
+                                <label class="btn btn-outline-cyber btn-sm">
+                                    <input type="checkbox" class="d-none video-check" data-category="security-videos" data-id="7">
+                                    <i class="fas fa-check me-1"></i>أكملت
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="video-card">
+                            <div class="video-info">
+                                <span class="video-number">20</span>
+                                <span class="video-title">Cyber Kill Chain - سلسلة القتل السيبراني</span>
+                                <div class="video-desc">مراحل الهجوم السيبراني وفق نموذج Cyber Kill Chain</div>
+                            </div>
+                            <div class="video-actions">
+                                <a href="https://youtu.be/CUAq4dB11u0?si=Rw3IYrdGBVkudiIS" target="_blank" class="btn btn-cyber btn-sm">
+                                    <i class="fas fa-external-link-alt me-1"></i>شاهد الفيديو
+                                </a>
+                                <label class="btn btn-outline-cyber btn-sm">
+                                    <input type="checkbox" class="d-none video-check" data-category="security-videos" data-id="8">
+                                    <i class="fas fa-check me-1"></i>أكملت
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="video-card">
+                            <div class="video-info">
+                                <span class="video-number">21</span>
+                                <span class="video-title">MITRE ATT&CK Framework</span>
+                                <div class="video-desc">إطار عمل MITRE ATT&CK للهجمات السيبرانية</div>
+                            </div>
+                            <div class="video-actions">
+                                <a href="https://youtu.be/GmZ_OtlefbA?si=iRKh7Ak0g-fx0JZC" target="_blank" class="btn btn-cyber btn-sm">
+                                    <i class="fas fa-external-link-alt me-1"></i>شاهد الفيديو
+                                </a>
+                                <label class="btn btn-outline-cyber btn-sm">
+                                    <input type="checkbox" class="d-none video-check" data-category="security-videos" data-id="9">
+                                    <i class="fas fa-check me-1"></i>أكملت
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="video-card">
+                            <div class="video-info">
+                                <span class="video-number">22</span>
+                                <span class="video-title">MITRE ATT&CK - التطبيق العملي</span>
+                                <div class="video-desc">كيفية تطبيق إطار MITRE ATT&CK عملياً</div>
+                            </div>
+                            <div class="video-actions">
+                                <a href="https://youtu.be/ZbbjI4vWz_o?si=sL2_pVOW8FMPdqB-" target="_blank" class="btn btn-cyber btn-sm">
+                                    <i class="fas fa-external-link-alt me-1"></i>شاهد الفيديو
+                                </a>
+                                <label class="btn btn-outline-cyber btn-sm">
+                                    <input type="checkbox" class="d-none video-check" data-category="security-videos" data-id="10">
+                                    <i class="fas fa-check me-1"></i>أكملت
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Additional Videos -->
+                <div class="topic-card">
+                    <div class="topic-title">
+                        <i class="fas fa-film"></i>
+                        فيديوهات إضافية مفيدة
+                    </div>
+                    
+                    <div class="video-list">
+                        <div class="video-card">
+                            <div class="video-info">
+                                <span class="video-number">23</span>
+                                <span class="video-title">الربح من مجال الأمن السيبراني</span>
+                                <div class="video-desc">كيف يمكنك الربح من مجال الأمن السيبراني والمسارات المهنية</div>
+                            </div>
+                            <div class="video-actions">
+                                <a href="https://youtu.be/z0qEQ-fF7uI?si=88uifk288QiomAsF" target="_blank" class="btn btn-cyber btn-sm">
+                                    <i class="fas fa-external-link-alt me-1"></i>شاهد الفيديو
+                                </a>
+                                <label class="btn btn-outline-cyber btn-sm">
+                                    <input type="checkbox" class="d-none video-check" data-category="additional-videos" data-id="1">
+                                    <i class="fas fa-check me-1"></i>أكملت
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Cyber Line -->
+        <div class="cyber-line"></div>
+        
+           
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="footer-glow"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <p class="developer-credit">
+                        Developed by <span>Eng.Hossam Mahmoud</span>
+                    </p>
+                    <p class="text-muted mt-2" style="color: #0000ff; background: #00ff88;">
+                        BrightMinds Team - Cyber Security Track &copy; 2026
+                    </p>
+                    <div class="footer-icons">
+                        <i class="fas fa-code" style="color: var(--primary-color);"></i>
+                        <i class="fas fa-shield-alt" style="color: var(--success-color);"></i>
+                        <i class="fas fa-lock" style="color: var(--warning-color);"></i>
+                        <i class="fas fa-globe" style="color: var(--accent-color);"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize progress tracking
+            initProgressTracking();
+            
+            // Handle collapse toggle icons
+            const weekHeaders = document.querySelectorAll('.week-header');
+            weekHeaders.forEach(header => {
+                header.addEventListener('click', function() {
+                    const icon = this.querySelector('i.fa-chevron-down');
+                    if (icon) {
+                        icon.classList.toggle('fa-rotate-180');
+                    }
+                });
+            });
+            
+            // Handle video check buttons
+            const videoCheckBtns = document.querySelectorAll('.video-check');
+            videoCheckBtns.forEach(btn => {
+                btn.addEventListener('change', function() {
+                    const label = this.parentElement;
+                    if (this.checked) {
+                        label.classList.remove('btn-outline-cyber');
+                        label.classList.add('btn-success');
+                        label.innerHTML = '<i class="fas fa-check me-1"></i>مكتمل';
+                    } else {
+                        label.classList.remove('btn-success');
+                        label.classList.add('btn-outline-cyber');
+                        label.innerHTML = '<i class="fas fa-check me-1"></i>أكملت';
+                    }
+                    updateProgress();
+                });
+            });
+            
+            // Load saved progress
+            loadProgress();
+            
+            // Add animation to cards on scroll
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate__animated', 'animate__fadeInUp');
+                    }
+                });
+            }, observerOptions);
+            
+            // Observe all topic cards and video cards
+            document.querySelectorAll('.topic-card, .motivational-card').forEach(card => {
+                observer.observe(card);
+            });
+            
+            // Function to initialize progress tracking
+            function initProgressTracking() {
+                // Count total items
+                const topicChecks = document.querySelectorAll('.topic-check');
+                const videoChecks = document.querySelectorAll('.video-check');
+                const totalItems = topicChecks.length + videoChecks.length;
+                document.getElementById('total-count').textContent = totalItems;
+                
+                // Add event listeners to all checkboxes
+                const allChecks = document.querySelectorAll('.topic-check, .video-check');
+                allChecks.forEach(check => {
+                    check.addEventListener('change', updateProgress);
+                });
+            }
+            
+            // Function to update progress
+            function updateProgress() {
+                const topicChecks = document.querySelectorAll('.topic-check');
+                const videoChecks = document.querySelectorAll('.video-check');
+                const allChecks = [...topicChecks, ...videoChecks];
+                
+                let completed = 0;
+                allChecks.forEach(check => {
+                    if (check.checked) completed++;
+                });
+                
+                const total = allChecks.length;
+                const percentage = total > 0 ? Math.round((completed / total) * 100) : 0;
+                
+                // Update UI
+                document.getElementById('completed-count').textContent = completed;
+                document.getElementById('progress-percentage').textContent = percentage + '%';
+                document.getElementById('progress-fill').style.width = percentage + '%';
+                
+                // Update status message
+                let statusMessage = 'ابدأ رحلتك الآن!';
+                let statusColor = 'var(--primary-color)';
+                
+                if (percentage > 0 && percentage < 25) {
+                    statusMessage = 'بدأت رحلتك! استمر في التقدم.';
+                    statusColor = 'var(--primary-color)';
+                } else if (percentage >= 25 && percentage < 50) {
+                    statusMessage = 'أنت على الطريق الصحيح! استمر.';
+                    statusColor = 'var(--success-color)';
+                } else if (percentage >= 50 && percentage < 75) {
+                    statusMessage = 'وصلت إلى منتصف الطريق! ممتاز.';
+                    statusColor = 'var(--warning-color)';
+                } else if (percentage >= 75 && percentage < 100) {
+                    statusMessage = 'قريب من النهاية! استمر في التركيز.';
+                    statusColor = 'var(--accent-color)';
+                } else if (percentage === 100) {
+                    statusMessage = 'ممتاز! لقد أكملت الأسبوع الأول بنجاح! 🎉';
+                    statusColor = 'var(--success-color)';
+                }
+                
+                document.getElementById('progress-status').textContent = statusMessage;
+                document.getElementById('progress-status').style.color = statusColor;
+                
+                // Save progress to localStorage
+                saveProgress();
+                
+                // Celebrate if 100%
+                if (percentage === 100) {
+                    celebrateCompletion();
+                }
+            }
+            
+            // Function to save progress to localStorage
+            function saveProgress() {
+                const progress = {};
+                const topicChecks = document.querySelectorAll('.topic-check');
+                const videoChecks = document.querySelectorAll('.video-check');
+                
+                topicChecks.forEach(check => {
+                    const category = check.getAttribute('data-category');
+                    const id = check.getAttribute('data-id');
+                    const key = `${category}-${id}`;
+                    progress[key] = check.checked;
+                });
+                
+                videoChecks.forEach(check => {
+                    const category = check.getAttribute('data-category');
+                    const id = check.getAttribute('data-id');
+                    const key = `${category}-${id}`;
+                    progress[key] = check.checked;
+                });
+                
+                localStorage.setItem('brightMinds-progress', JSON.stringify(progress));
+            }
+            
+            // Function to load progress from localStorage
+            function loadProgress() {
+                const savedProgress = localStorage.getItem('brightMinds-progress');
+                if (savedProgress) {
+                    const progress = JSON.parse(savedProgress);
+                    
+                    // Apply saved state to checkboxes
+                    const topicChecks = document.querySelectorAll('.topic-check');
+                    const videoChecks = document.querySelectorAll('.video-check');
+                    
+                    topicChecks.forEach(check => {
+                        const category = check.getAttribute('data-category');
+                        const id = check.getAttribute('data-id');
+                        const key = `${category}-${id}`;
+                        if (progress[key]) {
+                            check.checked = true;
+                        }
+                    });
+                    
+                    videoChecks.forEach(check => {
+                        const category = check.getAttribute('data-category');
+                        const id = check.getAttribute('data-id');
+                        const key = `${category}-${id}`;
+                        if (progress[key]) {
+                            check.checked = true;
+                            // Update button appearance
+                            const label = check.parentElement;
+                            if (label) {
+                                label.classList.remove('btn-outline-cyber');
+                                label.classList.add('btn-success');
+                                label.innerHTML = '<i class="fas fa-check me-1"></i>مكتمل';
+                            }
+                        }
+                    });
+                    
+                    // Update progress display
+                    updateProgress();
+                }
+            }
+            
+            // Function to celebrate completion
+            function celebrateCompletion() {
+                // Create celebration element
+                const celebration = document.createElement('div');
+                celebration.className = 'text-center mt-4 p-3 rounded';
+                celebration.style.background = 'linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(0, 255, 136, 0.1))';
+                celebration.style.border = '2px solid var(--success-color)';
+                celebration.innerHTML = `
+                    <h4 style="color: var(--success-color);">
+                        <i class="fas fa-trophy me-2"></i>تهانينا! لقد أكملت الأسبوع الأول!
+                    </h4>
+                    <p class="mb-0">فريق BrightMinds فخور بإنجازك. استعد للأسبوع القادم!</p>
+                `;
+                
+                // Add celebration to the page
+                const weekContent = document.getElementById('week1-content');
+                weekContent.appendChild(celebration);
+                
+                // Add confetti effect
+                createConfetti();
+            }
+            
+            // Function to create confetti effect
+            function createConfetti() {
+                const colors = ['#00d4ff', '#6a11cb', '#ff0080', '#00ff88', '#ffcc00'];
+                const confettiCount = 100;
+                
+                for (let i = 0; i < confettiCount; i++) {
+                    const confetti = document.createElement('div');
+                    confetti.className = 'confetti';
+                    confetti.style.position = 'fixed';
+                    confetti.style.width = '10px';
+                    confetti.style.height = '10px';
+                    confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                    confetti.style.borderRadius = '50%';
+                    confetti.style.left = Math.random() * 100 + 'vw';
+                    confetti.style.top = '-10px';
+                    confetti.style.zIndex = '9999';
+                    confetti.style.opacity = '0.8';
+                    
+                    document.body.appendChild(confetti);
+                    
+                    // Animation
+                    const animation = confetti.animate([
+                        { transform: 'translateY(0) rotate(0deg)', opacity: 1 },
+                        { transform: `translateY(${window.innerHeight}px) rotate(${Math.random() * 360}deg)`, opacity: 0 }
+                    ], {
+                        duration: 2000 + Math.random() * 2000,
+                        easing: 'cubic-bezier(0.215, 0.610, 0.355, 1)'
+                    });
+                    
+                    // Remove confetti after animation
+                    animation.onfinish = () => confetti.remove();
+                }
+            }
+            
+            // Add cyber security motivational quotes on page load
+            const quotes = [
+                "الهاكر الحقيقي لا يخترق الأنظمة، بل يبني أنظمة لا يمكن اختراقها.",
+                "في الأمن السيبراني، كل سطر كود هو خط دفاع، وكل ثغرة هي درس جديد.",
+                "فريق BrightMinds: عقل واحد، هدف واحد، مستقبل واحد.",
+                "التعلم في الأمن السيبراني مثل السباحة ضد التيار: إذا توقفت، سترجع للخلف.",
+                "أفضل دفاع هو فهم الهجوم. أفضل هجوم هو بناء دفاع لا يمكن اختراقه."
+            ];
+            
+            // Randomly display a quote in the motivation section
+            const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+            const quoteElement = document.createElement('div');
+            quoteElement.className = 'text-center mt-3';
+            quoteElement.innerHTML = `
+                <div style="color: var(--primary-color); font-size: 1.1rem; font-style: italic;">
+                    <i class="fas fa-quote-right me-2"></i>${randomQuote}<i class="fas fa-quote-left ms-2"></i>
+                </div>
+            `;
+            
+            document.querySelector('.motivation-section .row .col-lg-10').appendChild(quoteElement);
+        });
+    </script>
+</body>
+</html>
