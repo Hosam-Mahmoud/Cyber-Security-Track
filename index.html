@@ -913,7 +913,7 @@
                 <div class="progress-fill" id="progress-fill"></div>
             </div>
             <div class="progress-stats">
-                <span>مكتمل: <span id="completed-count">0</span> من <span id="total-count">0</span></span>
+                <span>مكتمل: <span id="completed-count">0</span> من <span id="total-count">23</span></span>
                 <span class="progress-status" id="progress-status">ابدأ رحلتك الآن!</span>
             </div>
         </section>
@@ -940,77 +940,7 @@
                         🎯 الهدف: تفهم الشبكة ماشية إزاي علشان تفهم أي هجوم أو دفاع.
                     </div>
                     
-                    <h5 class="mb-3" style="color: var(--accent-color);">تعلم بالترتيب:</h5>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <ul class="learning-list">
-                                <li>
-                                    <label class="check-item">
-                                        <input type="checkbox" class="topic-check" data-category="networking" data-id="1">
-                                        TCP / IP
-                                    </label>
-                                </li>
-                                <li>
-                                    <label class="check-item">
-                                        <input type="checkbox" class="topic-check" data-category="networking" data-id="2">
-                                        OSI Model
-                                    </label>
-                                </li>
-                                <li>
-                                    <label class="check-item">
-                                        <input type="checkbox" class="topic-check" data-category="networking" data-id="3">
-                                        Ports & Protocols
-                                    </label>
-                                </li>
-                                <li>
-                                    <label class="check-item">
-                                        <input type="checkbox" class="topic-check" data-category="networking" data-id="4">
-                                        DNS
-                                    </label>
-                                </li>
-                                <li>
-                                    <label class="check-item">
-                                        <input type="checkbox" class="topic-check" data-category="networking" data-id="5">
-                                        HTTP / HTTPS
-                                    </label>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="col-md-6">
-                            <ul class="learning-list">
-                                <li>
-                                    <label class="check-item">
-                                        <input type="checkbox" class="topic-check" data-category="networking" data-id="6">
-                                        VPN
-                                    </label>
-                                </li>
-                                <li>
-                                    <label class="check-item">
-                                        <input type="checkbox" class="topic-check" data-category="networking" data-id="7">
-                                        Firewalls
-                                    </label>
-                                </li>
-                                <li>
-                                    <label class="check-item">
-                                        <input type="checkbox" class="topic-check" data-category="networking" data-id="8">
-                                        NAT / Proxy
-                                    </label>
-                                </li>
-                                <li>
-                                    <label class="check-item">
-                                        <input type="checkbox" class="topic-check" data-category="networking" data-id="9">
-                                        Load Balancer
-                                    </label>
-                                </li>
-                                <li>
-                                    <label class="check-item">
-                                        <input type="checkbox" class="topic-check" data-category="networking" data-id="10">
-                                        Packet Flow
-                                    </label>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
+                    <h5 class="mb-3" style="color: var(--accent-color);">تعلم بالترتيب المنطقي:</h5>
                     
                     <!-- Networking Videos -->
                     <div class="video-list">
@@ -1018,26 +948,10 @@
                             <i class="fas fa-video me-2"></i>فيديوهات Networking Fundamentals
                         </h5>
                         
+                        <!-- فيديو 1 -->
                         <div class="video-card">
                             <div class="video-info">
                                 <span class="video-number">1</span>
-                                <span class="video-title">NAT - ترجمة عناوين الشبكة</span>
-                                <div class="video-desc">شرح مفهوم NAT وكيفية عمله في الشبكات</div>
-                            </div>
-                            <div class="video-actions">
-                                <a href="https://youtu.be/TriqRvr-X_o?si=lc5kYg99b1w4DP53" target="_blank" class="btn btn-cyber btn-sm">
-                                    <i class="fas fa-external-link-alt me-1"></i>شاهد الفيديو
-                                </a>
-                                <label class="btn btn-outline-cyber btn-sm">
-                                    <input type="checkbox" class="d-none video-check" data-category="networking-videos" data-id="1">
-                                    <i class="fas fa-check me-1"></i>أكملت
-                                </label>
-                            </div>
-                        </div>
-                        
-                        <div class="video-card">
-                            <div class="video-info">
-                                <span class="video-number">2</span>
                                 <span class="video-title">TCP/IP و OSI Model - المقارنة</span>
                                 <div class="video-desc">مقارنة بين نموذجي TCP/IP و OSI مع شرح الفروقات</div>
                             </div>
@@ -1046,15 +960,16 @@
                                     <i class="fas fa-external-link-alt me-1"></i>شاهد الفيديو
                                 </a>
                                 <label class="btn btn-outline-cyber btn-sm">
-                                    <input type="checkbox" class="d-none video-check" data-category="networking-videos" data-id="2">
+                                    <input type="checkbox" class="d-none video-check" data-category="networking" data-id="1">
                                     <i class="fas fa-check me-1"></i>أكملت
                                 </label>
                             </div>
                         </div>
                         
+                        <!-- فيديو 2 -->
                         <div class="video-card">
                             <div class="video-info">
-                                <span class="video-number">3</span>
+                                <span class="video-number">2</span>
                                 <span class="video-title">TCP/IP - شرح مفصل</span>
                                 <div class="video-desc">شرح مفصل لبروتوكول TCP/IP وكيفية عمله</div>
                             </div>
@@ -1063,15 +978,16 @@
                                     <i class="fas fa-external-link-alt me-1"></i>شاهد الفيديو
                                 </a>
                                 <label class="btn btn-outline-cyber btn-sm">
-                                    <input type="checkbox" class="d-none video-check" data-category="networking-videos" data-id="3">
+                                    <input type="checkbox" class="d-none video-check" data-category="networking" data-id="2">
                                     <i class="fas fa-check me-1"></i>أكملت
                                 </label>
                             </div>
                         </div>
                         
+                        <!-- فيديو 3 -->
                         <div class="video-card">
                             <div class="video-info">
-                                <span class="video-number">4</span>
+                                <span class="video-number">3</span>
                                 <span class="video-title">OSI Model - الشرح الكامل</span>
                                 <div class="video-desc">شرح طبقات OSI Model السبعة بالتفصيل</div>
                             </div>
@@ -1080,12 +996,31 @@
                                     <i class="fas fa-external-link-alt me-1"></i>شاهد الفيديو
                                 </a>
                                 <label class="btn btn-outline-cyber btn-sm">
-                                    <input type="checkbox" class="d-none video-check" data-category="networking-videos" data-id="4">
+                                    <input type="checkbox" class="d-none video-check" data-category="networking" data-id="3">
                                     <i class="fas fa-check me-1"></i>أكملت
                                 </label>
                             </div>
                         </div>
                         
+                        <!-- فيديو 4 -->
+                        <div class="video-card">
+                            <div class="video-info">
+                                <span class="video-number">4</span>
+                                <span class="video-title">DNS - نظام أسماء النطاقات</span>
+                                <div class="video-desc">شرح نظام DNS وكيفية تحويل الأسماء إلى عناوين IP</div>
+                            </div>
+                            <div class="video-actions">
+                                <a href="https://youtu.be/s-9143t3cHA?si=seB_tAlS2iU_dOAI" target="_blank" class="btn btn-cyber btn-sm">
+                                    <i class="fas fa-external-link-alt me-1"></i>شاهد الفيديو
+                                </a>
+                                <label class="btn btn-outline-cyber btn-sm">
+                                    <input type="checkbox" class="d-none video-check" data-category="networking" data-id="4">
+                                    <i class="fas fa-check me-1"></i>أكملت
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <!-- فيديو 5 -->
                         <div class="video-card">
                             <div class="video-info">
                                 <span class="video-number">5</span>
@@ -1097,12 +1032,13 @@
                                     <i class="fas fa-external-link-alt me-1"></i>شاهد الفيديو
                                 </a>
                                 <label class="btn btn-outline-cyber btn-sm">
-                                    <input type="checkbox" class="d-none video-check" data-category="networking-videos" data-id="5">
+                                    <input type="checkbox" class="d-none video-check" data-category="networking" data-id="5">
                                     <i class="fas fa-check me-1"></i>أكملت
                                 </label>
                             </div>
                         </div>
                         
+                        <!-- فيديو 6 -->
                         <div class="video-card">
                             <div class="video-info">
                                 <span class="video-number">6</span>
@@ -1114,49 +1050,16 @@
                                     <i class="fas fa-external-link-alt me-1"></i>شاهد الفيديو
                                 </a>
                                 <label class="btn btn-outline-cyber btn-sm">
-                                    <input type="checkbox" class="d-none video-check" data-category="networking-videos" data-id="6">
+                                    <input type="checkbox" class="d-none video-check" data-category="networking" data-id="6">
                                     <i class="fas fa-check me-1"></i>أكملت
                                 </label>
                             </div>
                         </div>
                         
+                        <!-- فيديو 7 -->
                         <div class="video-card">
                             <div class="video-info">
                                 <span class="video-number">7</span>
-                                <span class="video-title">VPN - الشبكات الخاصة الافتراضية</span>
-                                <div class="video-desc">ما هو VPN وكيف يعمل لحماية اتصالاتك</div>
-                            </div>
-                            <div class="video-actions">
-                                <a href="https://youtu.be/geQS8wLq9IA?si=gcgkpwJcdbl5C-RD" target="_blank" class="btn btn-cyber btn-sm">
-                                    <i class="fas fa-external-link-alt me-1"></i>شاهد الفيديو
-                                </a>
-                                <label class="btn btn-outline-cyber btn-sm">
-                                    <input type="checkbox" class="d-none video-check" data-category="networking-videos" data-id="7">
-                                    <i class="fas fa-check me-1"></i>أكملت
-                                </label>
-                            </div>
-                        </div>
-                        
-                        <div class="video-card">
-                            <div class="video-info">
-                                <span class="video-number">8</span>
-                                <span class="video-title">DNS - نظام أسماء النطاقات</span>
-                                <div class="video-desc">شرح نظام DNS وكيفية تحويل الأسماء إلى عناوين IP</div>
-                            </div>
-                            <div class="video-actions">
-                                <a href="https://youtu.be/s-9143t3cHA?si=seB_tAlS2iU_dOAI" target="_blank" class="btn btn-cyber btn-sm">
-                                    <i class="fas fa-external-link-alt me-1"></i>شاهد الفيديو
-                                </a>
-                                <label class="btn btn-outline-cyber btn-sm">
-                                    <input type="checkbox" class="d-none video-check" data-category="networking-videos" data-id="8">
-                                    <i class="fas fa-check me-1"></i>أكملت
-                                </label>
-                            </div>
-                        </div>
-                        
-                        <div class="video-card">
-                            <div class="video-info">
-                                <span class="video-number">9</span>
                                 <span class="video-title">SSL/TLS - تأمين الاتصالات</span>
                                 <div class="video-desc">شرح بروتوكولات SSL و TLS لتأمين الاتصالات</div>
                             </div>
@@ -1165,12 +1068,49 @@
                                     <i class="fas fa-external-link-alt me-1"></i>شاهد الفيديو
                                 </a>
                                 <label class="btn btn-outline-cyber btn-sm">
-                                    <input type="checkbox" class="d-none video-check" data-category="networking-videos" data-id="9">
+                                    <input type="checkbox" class="d-none video-check" data-category="networking" data-id="7">
                                     <i class="fas fa-check me-1"></i>أكملت
                                 </label>
                             </div>
                         </div>
                         
+                        <!-- فيديو 8 -->
+                        <div class="video-card">
+                            <div class="video-info">
+                                <span class="video-number">8</span>
+                                <span class="video-title">NAT - ترجمة عناوين الشبكة</span>
+                                <div class="video-desc">شرح مفهوم NAT وكيفية عمله في الشبكات</div>
+                            </div>
+                            <div class="video-actions">
+                                <a href="https://youtu.be/TriqRvr-X_o?si=lc5kYg99b1w4DP53" target="_blank" class="btn btn-cyber btn-sm">
+                                    <i class="fas fa-external-link-alt me-1"></i>شاهد الفيديو
+                                </a>
+                                <label class="btn btn-outline-cyber btn-sm">
+                                    <input type="checkbox" class="d-none video-check" data-category="networking" data-id="8">
+                                    <i class="fas fa-check me-1"></i>أكملت
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <!-- فيديو 9 -->
+                        <div class="video-card">
+                            <div class="video-info">
+                                <span class="video-number">9</span>
+                                <span class="video-title">VPN - الشبكات الخاصة الافتراضية</span>
+                                <div class="video-desc">ما هو VPN وكيف يعمل لحماية اتصالاتك</div>
+                            </div>
+                            <div class="video-actions">
+                                <a href="https://youtu.be/geQS8wLq9IA?si=gcgkpwJcdbl5C-RD" target="_blank" class="btn btn-cyber btn-sm">
+                                    <i class="fas fa-external-link-alt me-1"></i>شاهد الفيديو
+                                </a>
+                                <label class="btn btn-outline-cyber btn-sm">
+                                    <input type="checkbox" class="d-none video-check" data-category="networking" data-id="9">
+                                    <i class="fas fa-check me-1"></i>أكملت
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <!-- فيديو 10 -->
                         <div class="video-card">
                             <div class="video-info">
                                 <span class="video-number">10</span>
@@ -1182,116 +1122,13 @@
                                     <i class="fas fa-external-link-alt me-1"></i>شاهد الفيديو
                                 </a>
                                 <label class="btn btn-outline-cyber btn-sm">
-                                    <input type="checkbox" class="d-none video-check" data-category="networking-videos" data-id="10">
+                                    <input type="checkbox" class="d-none video-check" data-category="networking" data-id="10">
                                     <i class="fas fa-check me-1"></i>أكملت
                                 </label>
                             </div>
                         </div>
-                    </div>
-                </div>
-                
-                <!-- Operating Systems -->
-                <div class="topic-card">
-                    <div class="topic-title">
-                        <i class="fas fa-desktop"></i>
-                        Operating Systems - أنظمة التشغيل
-                    </div>
-                    
-                    <div class="topic-goal">
-                        🎯 الهدف: تفهم السيستم من جوه مش مستخدم عادي.
-                    </div>
-                    
-                    <div class="row">
-                        <div class="col-md-6">
-                            <h5 class="mb-3" style="color: var(--warning-color);">Linux (أساسي)</h5>
-                            <ul class="learning-list">
-                                <li>
-                                    <label class="check-item">
-                                        <input type="checkbox" class="topic-check" data-category="os" data-id="1">
-                                        File System
-                                    </label>
-                                </li>
-                                <li>
-                                    <label class="check-item">
-                                        <input type="checkbox" class="topic-check" data-category="os" data-id="2">
-                                        Permissions
-                                    </label>
-                                </li>
-                                <li>
-                                    <label class="check-item">
-                                        <input type="checkbox" class="topic-check" data-category="os" data-id="3">
-                                        Users & Groups
-                                    </label>
-                                </li>
-                                <li>
-                                    <label class="check-item">
-                                        <input type="checkbox" class="topic-check" data-category="os" data-id="4">
-                                        Processes
-                                    </label>
-                                </li>
-                                <li>
-                                    <label class="check-item">
-                                        <input type="checkbox" class="topic-check" data-category="os" data-id="5">
-                                        Services
-                                    </label>
-                                </li>
-                                <li>
-                                    <label class="check-item">
-                                        <input type="checkbox" class="topic-check" data-category="os" data-id="6">
-                                        Networking Commands
-                                    </label>
-                                </li>
-                                <li>
-                                    <label class="check-item">
-                                        <input type="checkbox" class="topic-check" data-category="os" data-id="7">
-                                        Logs
-                                    </label>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="col-md-6">
-                            <h5 class="mb-3" style="color: var(--warning-color);">Windows (أساسيات)</h5>
-                            <ul class="learning-list">
-                                <li>
-                                    <label class="check-item">
-                                        <input type="checkbox" class="topic-check" data-category="os" data-id="8">
-                                        File System
-                                    </label>
-                                </li>
-                                <li>
-                                    <label class="check-item">
-                                        <input type="checkbox" class="topic-check" data-category="os" data-id="9">
-                                        Registry
-                                    </label>
-                                </li>
-                                <li>
-                                    <label class="check-item">
-                                        <input type="checkbox" class="topic-check" data-category="os" data-id="10">
-                                        Processes & Services
-                                    </label>
-                                </li>
-                                <li>
-                                    <label class="check-item">
-                                        <input type="checkbox" class="topic-check" data-category="os" data-id="11">
-                                        Event Logs
-                                    </label>
-                                </li>
-                                <li>
-                                    <label class="check-item">
-                                        <input type="checkbox" class="topic-check" data-category="os" data-id="12">
-                                        Permissions
-                                    </label>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <!-- OS Videos -->
-                    <div class="video-list">
-                        <h5 class="video-list-title">
-                            <i class="fas fa-video me-2"></i>فيديوهات إضافية للشبكات
-                        </h5>
                         
+                        <!-- فيديو 11 -->
                         <div class="video-card">
                             <div class="video-info">
                                 <span class="video-number">11</span>
@@ -1303,12 +1140,13 @@
                                     <i class="fas fa-external-link-alt me-1"></i>شاهد الفيديو
                                 </a>
                                 <label class="btn btn-outline-cyber btn-sm">
-                                    <input type="checkbox" class="d-none video-check" data-category="os-videos" data-id="1">
+                                    <input type="checkbox" class="d-none video-check" data-category="networking" data-id="11">
                                     <i class="fas fa-check me-1"></i>أكملت
                                 </label>
                             </div>
                         </div>
                         
+                        <!-- فيديو 12 -->
                         <div class="video-card">
                             <div class="video-info">
                                 <span class="video-number">12</span>
@@ -1320,77 +1158,10 @@
                                     <i class="fas fa-external-link-alt me-1"></i>شاهد الفيديو
                                 </a>
                                 <label class="btn btn-outline-cyber btn-sm">
-                                    <input type="checkbox" class="d-none video-check" data-category="os-videos" data-id="2">
+                                    <input type="checkbox" class="d-none video-check" data-category="networking" data-id="12">
                                     <i class="fas fa-check me-1"></i>أكملت
                                 </label>
                             </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Programming & Scripting -->
-                <div class="topic-card">
-                    <div class="topic-title">
-                        <i class="fas fa-code"></i>
-                        Programming & Scripting - البرمجة والنصوص البرمجية
-                    </div>
-                    
-                    <div class="topic-goal">
-                        🎯 الهدف: تفهم الأدوات، تكتب Scripts، تفهم Exploits و Malware.
-                    </div>
-                    
-                    <h5 class="mb-3" style="color: var(--accent-color);">بالترتيب:</h5>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <ul class="learning-list">
-                                <li>
-                                    <label class="check-item">
-                                        <input type="checkbox" class="topic-check" data-category="programming" data-id="1">
-                                        Python (أساسي)
-                                    </label>
-                                </li>
-                                <li>
-                                    <label class="check-item">
-                                        <input type="checkbox" class="topic-check" data-category="programming" data-id="2">
-                                        Bash Scripting
-                                    </label>
-                                </li>
-                                <li>
-                                    <label class="check-item">
-                                        <input type="checkbox" class="topic-check" data-category="programming" data-id="3">
-                                        C (أساسيات فقط)
-                                    </label>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="col-md-6">
-                            <h6 class="text-warning mt-3">تعرف:</h6>
-                            <ul class="learning-list">
-                                <li>
-                                    <label class="check-item">
-                                        <input type="checkbox" class="topic-check" data-category="programming" data-id="4">
-                                        Loops
-                                    </label>
-                                </li>
-                                <li>
-                                    <label class="check-item">
-                                        <input type="checkbox" class="topic-check" data-category="programming" data-id="5">
-                                        Conditions
-                                    </label>
-                                </li>
-                                <li>
-                                    <label class="check-item">
-                                        <input type="checkbox" class="topic-check" data-category="programming" data-id="6">
-                                        Functions
-                                    </label>
-                                </li>
-                                <li>
-                                    <label class="check-item">
-                                        <input type="checkbox" class="topic-check" data-category="programming" data-id="7">
-                                        File Handling
-                                    </label>
-                                </li>
-                            </ul>
                         </div>
                     </div>
                 </div>
@@ -1402,84 +1173,16 @@
                         Security Fundamentals - أساسيات الأمن
                     </div>
                     
-                    <h5 class="mb-3" style="color: var(--accent-color);">تعلم:</h5>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <ul class="learning-list">
-                                <li>
-                                    <label class="check-item">
-                                        <input type="checkbox" class="topic-check" data-category="security" data-id="1">
-                                        CIA Triad
-                                    </label>
-                                </li>
-                                <li>
-                                    <label class="check-item">
-                                        <input type="checkbox" class="topic-check" data-category="security" data-id="2">
-                                        Authentication vs Authorization
-                                    </label>
-                                </li>
-                                <li>
-                                    <label class="check-item">
-                                        <input type="checkbox" class="topic-check" data-category="security" data-id="3">
-                                        Hashing
-                                    </label>
-                                </li>
-                                <li>
-                                    <label class="check-item">
-                                        <input type="checkbox" class="topic-check" data-category="security" data-id="4">
-                                        Encryption
-                                    </label>
-                                </li>
-                                <li>
-                                    <label class="check-item">
-                                        <input type="checkbox" class="topic-check" data-category="security" data-id="5">
-                                        Public / Private Key
-                                    </label>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="col-md-6">
-                            <ul class="learning-list">
-                                <li>
-                                    <label class="check-item">
-                                        <input type="checkbox" class="topic-check" data-category="security" data-id="6">
-                                        RSA / AES
-                                    </label>
-                                </li>
-                                <li>
-                                    <label class="check-item">
-                                        <input type="checkbox" class="topic-check" data-category="security" data-id="7">
-                                        Digital Signatures
-                                    </label>
-                                </li>
-                                <li>
-                                    <label class="check-item">
-                                        <input type="checkbox" class="topic-check" data-category="security" data-id="8">
-                                        Threat Modeling
-                                    </label>
-                                </li>
-                                <li>
-                                    <label class="check-item">
-                                        <input type="checkbox" class="topic-check" data-category="security" data-id="9">
-                                        Cyber Kill Chain
-                                    </label>
-                                </li>
-                                <li>
-                                    <label class="check-item">
-                                        <input type="checkbox" class="topic-check" data-category="security" data-id="10">
-                                        MITRE ATT&CK Framework
-                                    </label>
-                                </li>
-                            </ul>
-                        </div>
+                    <div class="topic-goal">
+                        🎯 الهدف: فهم المبادئ الأساسية للأمن السيبراني والتشفير.
                     </div>
                     
-                    <!-- Security Videos -->
                     <div class="video-list">
                         <h5 class="video-list-title">
                             <i class="fas fa-video me-2"></i>فيديوهات Security Fundamentals
                         </h5>
                         
+                        <!-- فيديو 13 -->
                         <div class="video-card">
                             <div class="video-info">
                                 <span class="video-number">13</span>
@@ -1491,12 +1194,13 @@
                                     <i class="fas fa-external-link-alt me-1"></i>شاهد الفيديو
                                 </a>
                                 <label class="btn btn-outline-cyber btn-sm">
-                                    <input type="checkbox" class="d-none video-check" data-category="security-videos" data-id="1">
+                                    <input type="checkbox" class="d-none video-check" data-category="security" data-id="13">
                                     <i class="fas fa-check me-1"></i>أكملت
                                 </label>
                             </div>
                         </div>
                         
+                        <!-- فيديو 14 -->
                         <div class="video-card">
                             <div class="video-info">
                                 <span class="video-number">14</span>
@@ -1508,12 +1212,13 @@
                                     <i class="fas fa-external-link-alt me-1"></i>شاهد الفيديو
                                 </a>
                                 <label class="btn btn-outline-cyber btn-sm">
-                                    <input type="checkbox" class="d-none video-check" data-category="security-videos" data-id="2">
+                                    <input type="checkbox" class="d-none video-check" data-category="security" data-id="14">
                                     <i class="fas fa-check me-1"></i>أكملت
                                 </label>
                             </div>
                         </div>
                         
+                        <!-- فيديو 15 -->
                         <div class="video-card">
                             <div class="video-info">
                                 <span class="video-number">15</span>
@@ -1525,12 +1230,13 @@
                                     <i class="fas fa-external-link-alt me-1"></i>شاهد الفيديو
                                 </a>
                                 <label class="btn btn-outline-cyber btn-sm">
-                                    <input type="checkbox" class="d-none video-check" data-category="security-videos" data-id="3">
+                                    <input type="checkbox" class="d-none video-check" data-category="security" data-id="15">
                                     <i class="fas fa-check me-1"></i>أكملت
                                 </label>
                             </div>
                         </div>
                         
+                        <!-- فيديو 16 -->
                         <div class="video-card">
                             <div class="video-info">
                                 <span class="video-number">16</span>
@@ -1542,16 +1248,17 @@
                                     <i class="fas fa-external-link-alt me-1"></i>شاهد الفيديو
                                 </a>
                                 <label class="btn btn-outline-cyber btn-sm">
-                                    <input type="checkbox" class="d-none video-check" data-category="security-videos" data-id="4">
+                                    <input type="checkbox" class="d-none video-check" data-category="security" data-id="16">
                                     <i class="fas fa-check me-1"></i>أكملت
                                 </label>
                             </div>
                         </div>
                         
+                        <!-- فيديو 17 -->
                         <div class="video-card">
                             <div class="video-info">
                                 <span class="video-number">17</span>
-                                <span class="video-title">Asymmetric Encryption</span>
+                                <span class="video-title">Asymmetric Encryption - التشفير غير المتناظر</span>
                                 <div class="video-desc">التشفير غير المتناظر (المفتاح العام/الخاص)</div>
                             </div>
                             <div class="video-actions">
@@ -1559,12 +1266,13 @@
                                     <i class="fas fa-external-link-alt me-1"></i>شاهد الفيديو
                                 </a>
                                 <label class="btn btn-outline-cyber btn-sm">
-                                    <input type="checkbox" class="d-none video-check" data-category="security-videos" data-id="5">
+                                    <input type="checkbox" class="d-none video-check" data-category="security" data-id="17">
                                     <i class="fas fa-check me-1"></i>أكملت
                                 </label>
                             </div>
                         </div>
                         
+                        <!-- فيديو 18 -->
                         <div class="video-card">
                             <div class="video-info">
                                 <span class="video-number">18</span>
@@ -1576,12 +1284,13 @@
                                     <i class="fas fa-external-link-alt me-1"></i>شاهد الفيديو
                                 </a>
                                 <label class="btn btn-outline-cyber btn-sm">
-                                    <input type="checkbox" class="d-none video-check" data-category="security-videos" data-id="6">
+                                    <input type="checkbox" class="d-none video-check" data-category="security" data-id="18">
                                     <i class="fas fa-check me-1"></i>أكملت
                                 </label>
                             </div>
                         </div>
                         
+                        <!-- فيديو 19 -->
                         <div class="video-card">
                             <div class="video-info">
                                 <span class="video-number">19</span>
@@ -1593,12 +1302,13 @@
                                     <i class="fas fa-external-link-alt me-1"></i>شاهد الفيديو
                                 </a>
                                 <label class="btn btn-outline-cyber btn-sm">
-                                    <input type="checkbox" class="d-none video-check" data-category="security-videos" data-id="7">
+                                    <input type="checkbox" class="d-none video-check" data-category="security" data-id="19">
                                     <i class="fas fa-check me-1"></i>أكملت
                                 </label>
                             </div>
                         </div>
                         
+                        <!-- فيديو 20 -->
                         <div class="video-card">
                             <div class="video-info">
                                 <span class="video-number">20</span>
@@ -1610,12 +1320,13 @@
                                     <i class="fas fa-external-link-alt me-1"></i>شاهد الفيديو
                                 </a>
                                 <label class="btn btn-outline-cyber btn-sm">
-                                    <input type="checkbox" class="d-none video-check" data-category="security-videos" data-id="8">
+                                    <input type="checkbox" class="d-none video-check" data-category="security" data-id="20">
                                     <i class="fas fa-check me-1"></i>أكملت
                                 </label>
                             </div>
                         </div>
                         
+                        <!-- فيديو 21 -->
                         <div class="video-card">
                             <div class="video-info">
                                 <span class="video-number">21</span>
@@ -1627,12 +1338,13 @@
                                     <i class="fas fa-external-link-alt me-1"></i>شاهد الفيديو
                                 </a>
                                 <label class="btn btn-outline-cyber btn-sm">
-                                    <input type="checkbox" class="d-none video-check" data-category="security-videos" data-id="9">
+                                    <input type="checkbox" class="d-none video-check" data-category="security" data-id="21">
                                     <i class="fas fa-check me-1"></i>أكملت
                                 </label>
                             </div>
                         </div>
                         
+                        <!-- فيديو 22 -->
                         <div class="video-card">
                             <div class="video-info">
                                 <span class="video-number">22</span>
@@ -1644,7 +1356,7 @@
                                     <i class="fas fa-external-link-alt me-1"></i>شاهد الفيديو
                                 </a>
                                 <label class="btn btn-outline-cyber btn-sm">
-                                    <input type="checkbox" class="d-none video-check" data-category="security-videos" data-id="10">
+                                    <input type="checkbox" class="d-none video-check" data-category="security" data-id="22">
                                     <i class="fas fa-check me-1"></i>أكملت
                                 </label>
                             </div>
@@ -1659,7 +1371,12 @@
                         فيديوهات إضافية مفيدة
                     </div>
                     
+                    <div class="topic-goal">
+                        🎯 الهدف: فهم الجانب المهني والعملي للمجال.
+                    </div>
+                    
                     <div class="video-list">
+                        <!-- فيديو 23 -->
                         <div class="video-card">
                             <div class="video-info">
                                 <span class="video-number">23</span>
@@ -1671,11 +1388,66 @@
                                     <i class="fas fa-external-link-alt me-1"></i>شاهد الفيديو
                                 </a>
                                 <label class="btn btn-outline-cyber btn-sm">
-                                    <input type="checkbox" class="d-none video-check" data-category="additional-videos" data-id="1">
+                                    <input type="checkbox" class="d-none video-check" data-category="additional" data-id="23">
                                     <i class="fas fa-check me-1"></i>أكملت
                                 </label>
                             </div>
                         </div>
+                    </div>
+                </div>
+                
+                <!-- Study Plan -->
+                <div class="topic-card">
+                    <div class="topic-title">
+                        <i class="fas fa-calendar-alt"></i>
+                        خطة الدراسة المقترحة
+                    </div>
+                    
+                    <div class="topic-goal">
+                        🎯 الهدف: تنظيم وقتك لإنهاء الأسبوع الأول بشكل فعال.
+                    </div>
+                    
+                    <div class="row mt-4">
+                        <div class="col-md-6">
+                            <h5 style="color: var(--warning-color);">اليوم 1-2: أساسيات الشبكات</h5>
+                            <ul class="learning-list">
+                                <li>الفيديوهات 1-6: TCP/IP، OSI، DNS، HTTP/HTTPS</li>
+                                <li>ركز على فهم المفاهيم الأساسية</li>
+                                <li>خذ ملاحظات عن كل بروتوكول</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <h5 style="color: var(--warning-color);">اليوم 3-4: تقنيات الشبكات</h5>
+                            <ul class="learning-list">
+                                <li>الفيديوهات 7-12: SSL/TLS، NAT، VPN، Load Balancer</li>
+                                <li>فهم كيفية حماية البيانات</li>
+                                <li>تعرف على تقنيات تحسين الأداء</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="row mt-4">
+                        <div class="col-md-6">
+                            <h5 style="color: var(--warning-color);">اليوم 5-6: أساسيات الأمن</h5>
+                            <ul class="learning-list">
+                                <li>الفيديوهات 13-18: CIA، Authentication، Hashing، Encryption</li>
+                                <li>فهم مبادئ الأمن الأساسية</li>
+                                <li>تعرف على تقنيات التشفير</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <h5 style="color: var(--warning-color);">اليوم 7: إطار العمل والختام</h5>
+                            <ul class="learning-list">
+                                <li>الفيديوهات 19-23: Threat Modeling، Kill Chain، MITRE ATT&CK</li>
+                                <li>مراجعة شاملة للمحتوى</li>
+                                <li>التخطيط للأسبوع القادم</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="alert alert-dark mt-4" style="background: rgba(0,212,255,0.1); border-color: var(--primary-color);">
+                        <i class="fas fa-lightbulb me-2"></i>
+                        <strong>نصيحة:</strong> لا تحاول إنهاء كل الفيديوهات في يوم واحد. قسمها على مدار الأسبوع مع أخذ فترات راحة للمراجعة والتطبيق العملي.
                     </div>
                 </div>
             </div>
@@ -1684,7 +1456,38 @@
         <!-- Cyber Line -->
         <div class="cyber-line"></div>
         
-           
+        <!-- Motivational Section -->
+        <section class="row mt-5">
+            <div class="col-md-4 mb-4">
+                <div class="motivational-card animate__animated animate__fadeInUp">
+                    <div class="motivational-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h4 class="motivational-title">التعلم المستمر</h4>
+                    <p>الأمن السيبراني مجال ديناميكي يتغير يومياً. التعلم المستمر هو المفتاح للبقاء في الصدارة.</p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="motivational-card animate__animated animate__fadeInUp" style="animation-delay: 0.2s;">
+                    <div class="motivational-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h4 class="motivational-title">فريق واحد</h4>
+                    <p>معاً نكون أقوى. شارك ما تعلمته مع فريق BrightMinds وساعد زملاءك في التقدم.</p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="motivational-card animate__animated animate__fadeInUp" style="animation-delay: 0.4s;">
+                    <div class="motivational-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <h4 class="motivational-title">الالتزام</h4>
+                    <p>الالتزام بالخطة الدراسية هو ما يفصل بين الهواة والمحترفين. التزم وسترى النتائج.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    
     <!-- Footer -->
     <footer class="main-footer">
         <div class="footer-glow"></div>
@@ -1694,14 +1497,14 @@
                     <p class="developer-credit">
                         Developed by <span>Eng.Hossam Mahmoud</span>
                     </p>
-                    <p class="text-muted mt-2" style="color: #0000ff; background: #00ff88;">
-                        BrightMinds Team - Cyber Security Track &copy; 2026
+                    <p class="text-muted mt-2" style="color: var(--text-muted);">
+                        BrightMinds Team - Cyber Security Track &copy; 2025
                     </p>
                     <div class="footer-icons">
-                        <i class="fas fa-code" style="color: var(--primary-color);"></i>
-                        <i class="fas fa-shield-alt" style="color: var(--success-color);"></i>
-                        <i class="fas fa-lock" style="color: var(--warning-color);"></i>
-                        <i class="fas fa-globe" style="color: var(--accent-color);"></i>
+                        <i class="fas fa-code"></i>
+                        <i class="fas fa-shield-alt"></i>
+                        <i class="fas fa-lock"></i>
+                        <i class="fas fa-globe"></i>
                     </div>
                 </div>
             </div>
@@ -1770,30 +1573,29 @@
             // Function to initialize progress tracking
             function initProgressTracking() {
                 // Count total items
-                const topicChecks = document.querySelectorAll('.topic-check');
                 const videoChecks = document.querySelectorAll('.video-check');
-                const totalItems = topicChecks.length + videoChecks.length;
+                const totalItems = videoChecks.length;
                 document.getElementById('total-count').textContent = totalItems;
                 
                 // Add event listeners to all checkboxes
-                const allChecks = document.querySelectorAll('.topic-check, .video-check');
-                allChecks.forEach(check => {
+                videoChecks.forEach(check => {
                     check.addEventListener('change', updateProgress);
                 });
+                
+                // Initial progress update
+                updateProgress();
             }
             
             // Function to update progress
             function updateProgress() {
-                const topicChecks = document.querySelectorAll('.topic-check');
                 const videoChecks = document.querySelectorAll('.video-check');
-                const allChecks = [...topicChecks, ...videoChecks];
                 
                 let completed = 0;
-                allChecks.forEach(check => {
+                videoChecks.forEach(check => {
                     if (check.checked) completed++;
                 });
                 
-                const total = allChecks.length;
+                const total = videoChecks.length;
                 const percentage = total > 0 ? Math.round((completed / total) * 100) : 0;
                 
                 // Update UI
@@ -1837,15 +1639,7 @@
             // Function to save progress to localStorage
             function saveProgress() {
                 const progress = {};
-                const topicChecks = document.querySelectorAll('.topic-check');
                 const videoChecks = document.querySelectorAll('.video-check');
-                
-                topicChecks.forEach(check => {
-                    const category = check.getAttribute('data-category');
-                    const id = check.getAttribute('data-id');
-                    const key = `${category}-${id}`;
-                    progress[key] = check.checked;
-                });
                 
                 videoChecks.forEach(check => {
                     const category = check.getAttribute('data-category');
@@ -1864,17 +1658,7 @@
                     const progress = JSON.parse(savedProgress);
                     
                     // Apply saved state to checkboxes
-                    const topicChecks = document.querySelectorAll('.topic-check');
                     const videoChecks = document.querySelectorAll('.video-check');
-                    
-                    topicChecks.forEach(check => {
-                        const category = check.getAttribute('data-category');
-                        const id = check.getAttribute('data-id');
-                        const key = `${category}-${id}`;
-                        if (progress[key]) {
-                            check.checked = true;
-                        }
-                    });
                     
                     videoChecks.forEach(check => {
                         const category = check.getAttribute('data-category');
