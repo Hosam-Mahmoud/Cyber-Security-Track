@@ -572,12 +572,30 @@
             border: 1px solid var(--success-color);
             font-weight: 600;
             transition: all 0.3s ease;
+            min-width: 90px;
         }
         
         .btn-outline-cyber:hover {
             background-color: rgba(0, 255, 136, 0.1);
             transform: translateY(-3px);
             box-shadow: 0 5px 15px rgba(0, 255, 136, 0.2);
+        }
+        
+        /* Success Button */
+        .btn-success {
+            background: linear-gradient(135deg, var(--success-color), #00cc77);
+            border: none;
+            color: white;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            min-width: 90px;
+        }
+        
+        .btn-success:hover {
+            background: linear-gradient(135deg, #00cc77, var(--success-color));
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 255, 136, 0.4);
+            color: white;
         }
         
         /* Motivational Cards */
@@ -702,6 +720,26 @@
             height: 100%;
             background: linear-gradient(90deg, transparent, white, transparent);
             animation: scanline 3s linear infinite;
+        }
+        
+        /* Confetti */
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            z-index: 9999;
+            opacity: 0.8;
+        }
+        
+        /* Completed Video Styling */
+        .video-card.completed {
+            background: rgba(0, 255, 136, 0.05);
+            border-color: rgba(0, 255, 136, 0.3);
+        }
+        
+        .video-card.completed .video-number {
+            background: linear-gradient(135deg, var(--success-color), #00cc77);
         }
         
         /* Responsive */
@@ -915,6 +953,12 @@
                 <span>مكتمل: <span id="completed-count">0</span> من <span id="total-count">23</span></span>
                 <span class="progress-status" id="progress-status">ابدأ رحلتك الآن!</span>
             </div>
+            
+            <div class="mt-3 text-center">
+                <button class="btn btn-sm btn-danger" id="reset-progress">
+                    <i class="fas fa-redo me-1"></i>إعادة تعيين التقدم
+                </button>
+            </div>
         </section>
         
         <!-- Cyber Line -->
@@ -948,7 +992,7 @@
                         </h5>
                         
                         <!-- فيديو 1 -->
-                        <div class="video-card">
+                        <div class="video-card" data-video-id="1">
                             <div class="video-info">
                                 <span class="video-number">1</span>
                                 <span class="video-title">TCP/IP و OSI Model - المقارنة</span>
@@ -958,15 +1002,14 @@
                                 <a href="https://youtu.be/MfNheIcKCmM?si=2cD1AsFVBYWdhUOX" target="_blank" class="btn btn-cyber btn-sm">
                                     <i class="fas fa-external-link-alt me-1"></i>شاهد الفيديو
                                 </a>
-                                <label class="btn btn-outline-cyber btn-sm">
-                                    <input type="checkbox" class="d-none video-check" data-category="networking" data-id="1">
+                                <button class="btn btn-outline-cyber btn-sm complete-btn" data-video-id="1">
                                     <i class="fas fa-check me-1"></i>أكملت
-                                </label>
+                                </button>
                             </div>
                         </div>
                         
                         <!-- فيديو 2 -->
-                        <div class="video-card">
+                        <div class="video-card" data-video-id="2">
                             <div class="video-info">
                                 <span class="video-number">2</span>
                                 <span class="video-title">TCP/IP - شرح مفصل</span>
@@ -976,15 +1019,14 @@
                                 <a href="https://youtu.be/fiFBpFjfYyo?si=5khdfkeUht5H2-5f" target="_blank" class="btn btn-cyber btn-sm">
                                     <i class="fas fa-external-link-alt me-1"></i>شاهد الفيديو
                                 </a>
-                                <label class="btn btn-outline-cyber btn-sm">
-                                    <input type="checkbox" class="d-none video-check" data-category="networking" data-id="2">
+                                <button class="btn btn-outline-cyber btn-sm complete-btn" data-video-id="2">
                                     <i class="fas fa-check me-1"></i>أكملت
-                                </label>
+                                </button>
                             </div>
                         </div>
                         
                         <!-- فيديو 3 -->
-                        <div class="video-card">
+                        <div class="video-card" data-video-id="3">
                             <div class="video-info">
                                 <span class="video-number">3</span>
                                 <span class="video-title">OSI Model - الشرح الكامل</span>
@@ -994,15 +1036,14 @@
                                 <a href="https://youtu.be/61kRxdZ5p-o?si=OP4iflCTIRKYw9mM" target="_blank" class="btn btn-cyber btn-sm">
                                     <i class="fas fa-external-link-alt me-1"></i>شاهد الفيديو
                                 </a>
-                                <label class="btn btn-outline-cyber btn-sm">
-                                    <input type="checkbox" class="d-none video-check" data-category="networking" data-id="3">
+                                <button class="btn btn-outline-cyber btn-sm complete-btn" data-video-id="3">
                                     <i class="fas fa-check me-1"></i>أكملت
-                                </label>
+                                </button>
                             </div>
                         </div>
                         
                         <!-- فيديو 4 -->
-                        <div class="video-card">
+                        <div class="video-card" data-video-id="4">
                             <div class="video-info">
                                 <span class="video-number">4</span>
                                 <span class="video-title">DNS - نظام أسماء النطاقات</span>
@@ -1012,15 +1053,14 @@
                                 <a href="https://youtu.be/s-9143t3cHA?si=seB_tAlS2iU_dOAI" target="_blank" class="btn btn-cyber btn-sm">
                                     <i class="fas fa-external-link-alt me-1"></i>شاهد الفيديو
                                 </a>
-                                <label class="btn btn-outline-cyber btn-sm">
-                                    <input type="checkbox" class="d-none video-check" data-category="networking" data-id="4">
+                                <button class="btn btn-outline-cyber btn-sm complete-btn" data-video-id="4">
                                     <i class="fas fa-check me-1"></i>أكملت
-                                </label>
+                                </button>
                             </div>
                         </div>
                         
                         <!-- فيديو 5 -->
-                        <div class="video-card">
+                        <div class="video-card" data-video-id="5">
                             <div class="video-info">
                                 <span class="video-number">5</span>
                                 <span class="video-title">HTTP و HTTPS - الفرق والأمان</span>
@@ -1030,15 +1070,14 @@
                                 <a href="https://youtu.be/RxFgqeyXh6c?si=xjYjcI904gvJmAkT" target="_blank" class="btn btn-cyber btn-sm">
                                     <i class="fas fa-external-link-alt me-1"></i>شاهد الفيديو
                                 </a>
-                                <label class="btn btn-outline-cyber btn-sm">
-                                    <input type="checkbox" class="d-none video-check" data-category="networking" data-id="5">
+                                <button class="btn btn-outline-cyber btn-sm complete-btn" data-video-id="5">
                                     <i class="fas fa-check me-1"></i>أكملت
-                                </label>
+                                </button>
                             </div>
                         </div>
                         
                         <!-- فيديو 6 -->
-                        <div class="video-card">
+                        <div class="video-card" data-video-id="6">
                             <div class="video-info">
                                 <span class="video-number">6</span>
                                 <span class="video-title">HTTPS و SSL/TLS - الجزء العملي</span>
@@ -1048,15 +1087,14 @@
                                 <a href="https://youtu.be/Iws5GpUVnq4?si=1dXIQHzg790jthpi" target="_blank" class="btn btn-cyber btn-sm">
                                     <i class="fas fa-external-link-alt me-1"></i>شاهد الفيديو
                                 </a>
-                                <label class="btn btn-outline-cyber btn-sm">
-                                    <input type="checkbox" class="d-none video-check" data-category="networking" data-id="6">
+                                <button class="btn btn-outline-cyber btn-sm complete-btn" data-video-id="6">
                                     <i class="fas fa-check me-1"></i>أكملت
-                                </label>
+                                </button>
                             </div>
                         </div>
                         
                         <!-- فيديو 7 -->
-                        <div class="video-card">
+                        <div class="video-card" data-video-id="7">
                             <div class="video-info">
                                 <span class="video-number">7</span>
                                 <span class="video-title">SSL/TLS - تأمين الاتصالات</span>
@@ -1066,15 +1104,14 @@
                                 <a href="https://youtu.be/9EOdDUmAErQ?si=Yz20uv-6p7ry153f" target="_blank" class="btn btn-cyber btn-sm">
                                     <i class="fas fa-external-link-alt me-1"></i>شاهد الفيديو
                                 </a>
-                                <label class="btn btn-outline-cyber btn-sm">
-                                    <input type="checkbox" class="d-none video-check" data-category="networking" data-id="7">
+                                <button class="btn btn-outline-cyber btn-sm complete-btn" data-video-id="7">
                                     <i class="fas fa-check me-1"></i>أكملت
-                                </label>
+                                </button>
                             </div>
                         </div>
                         
                         <!-- فيديو 8 -->
-                        <div class="video-card">
+                        <div class="video-card" data-video-id="8">
                             <div class="video-info">
                                 <span class="video-number">8</span>
                                 <span class="video-title">NAT - ترجمة عناوين الشبكة</span>
@@ -1084,15 +1121,14 @@
                                 <a href="https://youtu.be/TriqRvr-X_o?si=lc5kYg99b1w4DP53" target="_blank" class="btn btn-cyber btn-sm">
                                     <i class="fas fa-external-link-alt me-1"></i>شاهد الفيديو
                                 </a>
-                                <label class="btn btn-outline-cyber btn-sm">
-                                    <input type="checkbox" class="d-none video-check" data-category="networking" data-id="8">
+                                <button class="btn btn-outline-cyber btn-sm complete-btn" data-video-id="8">
                                     <i class="fas fa-check me-1"></i>أكملت
-                                </label>
+                                </button>
                             </div>
                         </div>
                         
                         <!-- فيديو 9 -->
-                        <div class="video-card">
+                        <div class="video-card" data-video-id="9">
                             <div class="video-info">
                                 <span class="video-number">9</span>
                                 <span class="video-title">VPN - الشبكات الخاصة الافتراضية</span>
@@ -1102,15 +1138,14 @@
                                 <a href="https://youtu.be/geQS8wLq9IA?si=gcgkpwJcdbl5C-RD" target="_blank" class="btn btn-cyber btn-sm">
                                     <i class="fas fa-external-link-alt me-1"></i>شاهد الفيديو
                                 </a>
-                                <label class="btn btn-outline-cyber btn-sm">
-                                    <input type="checkbox" class="d-none video-check" data-category="networking" data-id="9">
+                                <button class="btn btn-outline-cyber btn-sm complete-btn" data-video-id="9">
                                     <i class="fas fa-check me-1"></i>أكملت
-                                </label>
+                                </button>
                             </div>
                         </div>
                         
                         <!-- فيديو 10 -->
-                        <div class="video-card">
+                        <div class="video-card" data-video-id="10">
                             <div class="video-info">
                                 <span class="video-number">10</span>
                                 <span class="video-title">Load Balancer - موزع الحمل</span>
@@ -1120,15 +1155,14 @@
                                 <a href="https://youtu.be/FM0uxryWDGQ?si=FRNja9C6IbuXpMSk" target="_blank" class="btn btn-cyber btn-sm">
                                     <i class="fas fa-external-link-alt me-1"></i>شاهد الفيديو
                                 </a>
-                                <label class="btn btn-outline-cyber btn-sm">
-                                    <input type="checkbox" class="d-none video-check" data-category="networking" data-id="10">
+                                <button class="btn btn-outline-cyber btn-sm complete-btn" data-video-id="10">
                                     <i class="fas fa-check me-1"></i>أكملت
-                                </label>
+                                </button>
                             </div>
                         </div>
                         
                         <!-- فيديو 11 -->
-                        <div class="video-card">
+                        <div class="video-card" data-video-id="11">
                             <div class="video-info">
                                 <span class="video-number">11</span>
                                 <span class="video-title">فهم الشبكات بشكل عملي</span>
@@ -1138,15 +1172,14 @@
                                 <a href="https://youtu.be/ctojbQH5apc?si=gGhbXQmE0nxfB3V5" target="_blank" class="btn btn-cyber btn-sm">
                                     <i class="fas fa-external-link-alt me-1"></i>شاهد الفيديو
                                 </a>
-                                <label class="btn btn-outline-cyber btn-sm">
-                                    <input type="checkbox" class="d-none video-check" data-category="networking" data-id="11">
+                                <button class="btn btn-outline-cyber btn-sm complete-btn" data-video-id="11">
                                     <i class="fas fa-check me-1"></i>أكملت
-                                </label>
+                                </button>
                             </div>
                         </div>
                         
                         <!-- فيديو 12 -->
-                        <div class="video-card">
+                        <div class="video-card" data-video-id="12">
                             <div class="video-info">
                                 <span class="video-number">12</span>
                                 <span class="video-title">WiFi و Wireless Networking</span>
@@ -1156,10 +1189,9 @@
                                 <a href="https://youtu.be/L3Keks1sa6o?si=xAbOgmaIbaXaaWKw" target="_blank" class="btn btn-cyber btn-sm">
                                     <i class="fas fa-external-link-alt me-1"></i>شاهد الفيديو
                                 </a>
-                                <label class="btn btn-outline-cyber btn-sm">
-                                    <input type="checkbox" class="d-none video-check" data-category="networking" data-id="12">
+                                <button class="btn btn-outline-cyber btn-sm complete-btn" data-video-id="12">
                                     <i class="fas fa-check me-1"></i>أكملت
-                                </label>
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -1182,7 +1214,7 @@
                         </h5>
                         
                         <!-- فيديو 13 -->
-                        <div class="video-card">
+                        <div class="video-card" data-video-id="13">
                             <div class="video-info">
                                 <span class="video-number">13</span>
                                 <span class="video-title">CIA Triad - ثلاثية الأمن السيبراني</span>
@@ -1192,15 +1224,14 @@
                                 <a href="https://youtu.be/6x74rlowXtY?si=8M2ohgj52kMyoG0v" target="_blank" class="btn btn-cyber btn-sm">
                                     <i class="fas fa-external-link-alt me-1"></i>شاهد الفيديو
                                 </a>
-                                <label class="btn btn-outline-cyber btn-sm">
-                                    <input type="checkbox" class="d-none video-check" data-category="security" data-id="13">
+                                <button class="btn btn-outline-cyber btn-sm complete-btn" data-video-id="13">
                                     <i class="fas fa-check me-1"></i>أكملت
-                                </label>
+                                </button>
                             </div>
                         </div>
                         
                         <!-- فيديو 14 -->
-                        <div class="video-card">
+                        <div class="video-card" data-video-id="14">
                             <div class="video-info">
                                 <span class="video-number">14</span>
                                 <span class="video-title">Authentication vs Authorization</span>
@@ -1210,15 +1241,14 @@
                                 <a href="https://youtu.be/8LwodvRgyLE?si=wyCHEK88p5wMcUg7" target="_blank" class="btn btn-cyber btn-sm">
                                     <i class="fas fa-external-link-alt me-1"></i>شاهد الفيديو
                                 </a>
-                                <label class="btn btn-outline-cyber btn-sm">
-                                    <input type="checkbox" class="d-none video-check" data-category="security" data-id="14">
+                                <button class="btn btn-outline-cyber btn-sm complete-btn" data-video-id="14">
                                     <i class="fas fa-check me-1"></i>أكملت
-                                </label>
+                                </button>
                             </div>
                         </div>
                         
                         <!-- فيديو 15 -->
-                        <div class="video-card">
+                        <div class="video-card" data-video-id="15">
                             <div class="video-info">
                                 <span class="video-number">15</span>
                                 <span class="video-title">Authentication و JWT</span>
@@ -1228,15 +1258,14 @@
                                 <a href="https://youtu.be/wDwA7ihoOlc?si=caMZ_oxC2CSX9Ffk" target="_blank" class="btn btn-cyber btn-sm">
                                     <i class="fas fa-external-link-alt me-1"></i>شاهد الفيديو
                                 </a>
-                                <label class="btn btn-outline-cyber btn-sm">
-                                    <input type="checkbox" class="d-none video-check" data-category="security" data-id="15">
+                                <button class="btn btn-outline-cyber btn-sm complete-btn" data-video-id="15">
                                     <i class="fas fa-check me-1"></i>أكملت
-                                </label>
+                                </button>
                             </div>
                         </div>
                         
                         <!-- فيديو 16 -->
-                        <div class="video-card">
+                        <div class="video-card" data-video-id="16">
                             <div class="video-info">
                                 <span class="video-number">16</span>
                                 <span class="video-title">Hashing - التجزئة</span>
@@ -1246,15 +1275,14 @@
                                 <a href="https://youtu.be/4TBStYr8t4g?si=rI06IRRkGPjlQV9U" target="_blank" class="btn btn-cyber btn-sm">
                                     <i class="fas fa-external-link-alt me-1"></i>شاهد الفيديو
                                 </a>
-                                <label class="btn btn-outline-cyber btn-sm">
-                                    <input type="checkbox" class="d-none video-check" data-category="security" data-id="16">
+                                <button class="btn btn-outline-cyber btn-sm complete-btn" data-video-id="16">
                                     <i class="fas fa-check me-1"></i>أكملت
-                                </label>
+                                </button>
                             </div>
                         </div>
                         
                         <!-- فيديو 17 -->
-                        <div class="video-card">
+                        <div class="video-card" data-video-id="17">
                             <div class="video-info">
                                 <span class="video-number">17</span>
                                 <span class="video-title">Asymmetric Encryption - التشفير غير المتناظر</span>
@@ -1264,15 +1292,14 @@
                                 <a href="https://youtu.be/8lW2kvCVpHc?si=MIF8AOVfHV4mgA" target="_blank" class="btn btn-cyber btn-sm">
                                     <i class="fas fa-external-link-alt me-1"></i>شاهد الفيديو
                                 </a>
-                                <label class="btn btn-outline-cyber btn-sm">
-                                    <input type="checkbox" class="d-none video-check" data-category="security" data-id="17">
+                                <button class="btn btn-outline-cyber btn-sm complete-btn" data-video-id="17">
                                     <i class="fas fa-check me-1"></i>أكملت
-                                </label>
+                                </button>
                             </div>
                         </div>
                         
                         <!-- فيديو 18 -->
-                        <div class="video-card">
+                        <div class="video-card" data-video-id="18">
                             <div class="video-info">
                                 <span class="video-number">18</span>
                                 <span class="video-title">Digital Signature - التوقيع الرقمي</span>
@@ -1282,15 +1309,14 @@
                                 <a href="https://youtu.be/lBIPd8qOwAA?si=rPy_QtsFplS6Lw2Q" target="_blank" class="btn btn-cyber btn-sm">
                                     <i class="fas fa-external-link-alt me-1"></i>شاهد الفيديو
                                 </a>
-                                <label class="btn btn-outline-cyber btn-sm">
-                                    <input type="checkbox" class="d-none video-check" data-category="security" data-id="18">
+                                <button class="btn btn-outline-cyber btn-sm complete-btn" data-video-id="18">
                                     <i class="fas fa-check me-1"></i>أكملت
-                                </label>
+                                </button>
                             </div>
                         </div>
                         
                         <!-- فيديو 19 -->
-                        <div class="video-card">
+                        <div class="video-card" data-video-id="19">
                             <div class="video-info">
                                 <span class="video-number">19</span>
                                 <span class="video-title">Threat Modeling - نمذجة التهديدات</span>
@@ -1300,15 +1326,14 @@
                                 <a href="https://youtu.be/SOQrDrLpo8c?si=LQbQ5bFV--0JRvV1" target="_blank" class="btn btn-cyber btn-sm">
                                     <i class="fas fa-external-link-alt me-1"></i>شاهد الفيديو
                                 </a>
-                                <label class="btn btn-outline-cyber btn-sm">
-                                    <input type="checkbox" class="d-none video-check" data-category="security" data-id="19">
+                                <button class="btn btn-outline-cyber btn-sm complete-btn" data-video-id="19">
                                     <i class="fas fa-check me-1"></i>أكملت
-                                </label>
+                                </button>
                             </div>
                         </div>
                         
                         <!-- فيديو 20 -->
-                        <div class="video-card">
+                        <div class="video-card" data-video-id="20">
                             <div class="video-info">
                                 <span class="video-number">20</span>
                                 <span class="video-title">Cyber Kill Chain - سلسلة القتل السيبراني</span>
@@ -1318,15 +1343,14 @@
                                 <a href="https://youtu.be/CUAq4dB11u0?si=Rw3IYrdGBVkudiIS" target="_blank" class="btn btn-cyber btn-sm">
                                     <i class="fas fa-external-link-alt me-1"></i>شاهد الفيديو
                                 </a>
-                                <label class="btn btn-outline-cyber btn-sm">
-                                    <input type="checkbox" class="d-none video-check" data-category="security" data-id="20">
+                                <button class="btn btn-outline-cyber btn-sm complete-btn" data-video-id="20">
                                     <i class="fas fa-check me-1"></i>أكملت
-                                </label>
+                                </button>
                             </div>
                         </div>
                         
                         <!-- فيديو 21 -->
-                        <div class="video-card">
+                        <div class="video-card" data-video-id="21">
                             <div class="video-info">
                                 <span class="video-number">21</span>
                                 <span class="video-title">MITRE ATT&CK Framework</span>
@@ -1336,15 +1360,14 @@
                                 <a href="https://youtu.be/GmZ_OtlefbA?si=iRKh7Ak0g-fx0JZC" target="_blank" class="btn btn-cyber btn-sm">
                                     <i class="fas fa-external-link-alt me-1"></i>شاهد الفيديو
                                 </a>
-                                <label class="btn btn-outline-cyber btn-sm">
-                                    <input type="checkbox" class="d-none video-check" data-category="security" data-id="21">
+                                <button class="btn btn-outline-cyber btn-sm complete-btn" data-video-id="21">
                                     <i class="fas fa-check me-1"></i>أكملت
-                                </label>
+                                </button>
                             </div>
                         </div>
                         
                         <!-- فيديو 22 -->
-                        <div class="video-card">
+                        <div class="video-card" data-video-id="22">
                             <div class="video-info">
                                 <span class="video-number">22</span>
                                 <span class="video-title">MITRE ATT&CK - التطبيق العملي</span>
@@ -1354,10 +1377,9 @@
                                 <a href="https://youtu.be/ZbbjI4vWz_o?si=sL2_pVOW8FMPdqB-" target="_blank" class="btn btn-cyber btn-sm">
                                     <i class="fas fa-external-link-alt me-1"></i>شاهد الفيديو
                                 </a>
-                                <label class="btn btn-outline-cyber btn-sm">
-                                    <input type="checkbox" class="d-none video-check" data-category="security" data-id="22">
+                                <button class="btn btn-outline-cyber btn-sm complete-btn" data-video-id="22">
                                     <i class="fas fa-check me-1"></i>أكملت
-                                </label>
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -1376,7 +1398,7 @@
                     
                     <div class="video-list">
                         <!-- فيديو 23 -->
-                        <div class="video-card">
+                        <div class="video-card" data-video-id="23">
                             <div class="video-info">
                                 <span class="video-number">23</span>
                                 <span class="video-title">الربح من مجال الأمن السيبراني</span>
@@ -1386,102 +1408,12 @@
                                 <a href="https://youtu.be/z0qEQ-fF7uI?si=88uifk288QiomAsF" target="_blank" class="btn btn-cyber btn-sm">
                                     <i class="fas fa-external-link-alt me-1"></i>شاهد الفيديو
                                 </a>
-                                <label class="btn btn-outline-cyber btn-sm">
-                                    <input type="checkbox" class="d-none video-check" data-category="additional" data-id="23">
+                                <button class="btn btn-outline-cyber btn-sm complete-btn" data-video-id="23">
                                     <i class="fas fa-check me-1"></i>أكملت
-                                </label>
+                                </button>
                             </div>
                         </div>
                     </div>
-                </div>
-                
-                <!-- Study Plan -->
-                <div class="topic-card">
-                    <div class="topic-title">
-                        <i class="fas fa-calendar-alt"></i>
-                        خطة الدراسة المقترحة
-                    </div>
-                    
-                    <div class="topic-goal">
-                        🎯 الهدف: تنظيم وقتك لإنهاء الأسبوع الأول بشكل فعال.
-                    </div>
-                    
-                    <div class="row mt-4">
-                        <div class="col-md-6">
-                            <h5 style="color: var(--warning-color);">اليوم 1-2: أساسيات الشبكات</h5>
-                            <ul class="learning-list">
-                                <li>الفيديوهات 1-6: TCP/IP، OSI، DNS، HTTP/HTTPS</li>
-                                <li>ركز على فهم المفاهيم الأساسية</li>
-                                <li>خذ ملاحظات عن كل بروتوكول</li>
-                            </ul>
-                        </div>
-                        <div class="col-md-6">
-                            <h5 style="color: var(--warning-color);">اليوم 3-4: تقنيات الشبكات</h5>
-                            <ul class="learning-list">
-                                <li>الفيديوهات 7-12: SSL/TLS، NAT، VPN، Load Balancer</li>
-                                <li>فهم كيفية حماية البيانات</li>
-                                <li>تعرف على تقنيات تحسين الأداء</li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <div class="row mt-4">
-                        <div class="col-md-6">
-                            <h5 style="color: var(--warning-color);">اليوم 5-6: أساسيات الأمن</h5>
-                            <ul class="learning-list">
-                                <li>الفيديوهات 13-18: CIA، Authentication، Hashing، Encryption</li>
-                                <li>فهم مبادئ الأمن الأساسية</li>
-                                <li>تعرف على تقنيات التشفير</li>
-                            </ul>
-                        </div>
-                        <div class="col-md-6">
-                            <h5 style="color: var(--warning-color);">اليوم 7: إطار العمل والختام</h5>
-                            <ul class="learning-list">
-                                <li>الفيديوهات 19-23: Threat Modeling، Kill Chain، MITRE ATT&CK</li>
-                                <li>مراجعة شاملة للمحتوى</li>
-                                <li>التخطيط للأسبوع القادم</li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <div class="alert alert-dark mt-4" style="background: rgb(247 255 169); border-color: var(--primary-color);">
-                        <i class="fas fa-lightbulb me-2"></i>
-                        <strong>نصيحة:</strong> لا تحاول إنهاء كل الفيديوهات في يوم واحد. قسمها على مدار الأسبوع مع أخذ فترات راحة للمراجعة والتطبيق العملي.
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Cyber Line -->
-        <div class="cyber-line"></div>
-        
-        <!-- Motivational Section -->
-        <section class="row mt-5">
-            <div class="col-md-4 mb-4">
-                <div class="motivational-card animate__animated animate__fadeInUp">
-                    <div class="motivational-icon">
-                        <i class="fas fa-brain"></i>
-                    </div>
-                    <h4 class="motivational-title">التعلم المستمر</h4>
-                    <p>الأمن السيبراني مجال ديناميكي يتغير يومياً. التعلم المستمر هو المفتاح للبقاء في الصدارة.</p>
-                </div>
-            </div>
-            <div class="col-md-4 mb-4">
-                <div class="motivational-card animate__animated animate__fadeInUp" style="animation-delay: 0.2s;">
-                    <div class="motivational-icon">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <h4 class="motivational-title">فريق واحد</h4>
-                    <p>معاً نكون أقوى. شارك ما تعلمته مع فريق BrightMinds وساعد زملاءك في التقدم.</p>
-                </div>
-            </div>
-            <div class="col-md-4 mb-4">
-                <div class="motivational-card animate__animated animate__fadeInUp" style="animation-delay: 0.4s;">
-                    <div class="motivational-icon">
-                        <i class="fas fa-trophy"></i>
-                    </div>
-                    <h4 class="motivational-title">الالتزام</h4>
-                    <p>الالتزام بالخطة الدراسية هو ما يفصل بين الهواة والمحترفين. التزم وسترى النتائج.</p>
                 </div>
             </div>
         </section>
@@ -1515,194 +1447,267 @@
     
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Initialize progress tracking
-            initProgressTracking();
+            // تعريف المتغيرات العامة
+            const totalVideos = 23;
+            let completedVideos = 0;
+            const progressData = {};
             
-            // Handle collapse toggle icons
-            const weekHeaders = document.querySelectorAll('.week-header');
-            weekHeaders.forEach(header => {
-                header.addEventListener('click', function() {
-                    const icon = this.querySelector('i.fa-chevron-down');
-                    if (icon) {
-                        icon.classList.toggle('fa-rotate-180');
-                    }
-                });
-            });
+            // تهيئة التقدم
+            initProgress();
             
-            // Handle video check buttons
-            const videoCheckBtns = document.querySelectorAll('.video-check');
-            videoCheckBtns.forEach(btn => {
-                btn.addEventListener('change', function() {
-                    const label = this.parentElement;
-                    if (this.checked) {
-                        label.classList.remove('btn-outline-cyber');
-                        label.classList.add('btn-success');
-                        label.innerHTML = '<i class="fas fa-check me-1"></i>مكتمل';
-                    } else {
-                        label.classList.remove('btn-success');
-                        label.classList.add('btn-outline-cyber');
-                        label.innerHTML = '<i class="fas fa-check me-1"></i>أكملت';
-                    }
-                    updateProgress();
-                });
-            });
+            // إعداد أحداث الأزرار
+            setupButtons();
             
-            // Load saved progress
+            // تحميل التقدم المحفوظ
             loadProgress();
             
-            // Add animation to cards on scroll
-            const observerOptions = {
-                threshold: 0.1,
-                rootMargin: '0px 0px -50px 0px'
-            };
+            // تحديث شريط التقدم
+            updateProgress();
             
-            const observer = new IntersectionObserver(function(entries) {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('animate__animated', 'animate__fadeInUp');
-                    }
-                });
-            }, observerOptions);
-            
-            // Observe all topic cards and video cards
-            document.querySelectorAll('.topic-card, .motivational-card').forEach(card => {
-                observer.observe(card);
-            });
-            
-            // Function to initialize progress tracking
-            function initProgressTracking() {
-                // Count total items
-                const videoChecks = document.querySelectorAll('.video-check');
-                const totalItems = videoChecks.length;
-                document.getElementById('total-count').textContent = totalItems;
+            // وظيفة تهيئة التقدم
+            function initProgress() {
+                document.getElementById('total-count').textContent = totalVideos;
                 
-                // Add event listeners to all checkboxes
-                videoChecks.forEach(check => {
-                    check.addEventListener('change', updateProgress);
-                });
-                
-                // Initial progress update
-                updateProgress();
+                // تهيئة مصفوفة التقدم
+                for (let i = 1; i <= totalVideos; i++) {
+                    progressData[i] = false;
+                }
             }
             
-            // Function to update progress
-            function updateProgress() {
-                const videoChecks = document.querySelectorAll('.video-check');
-                
-                let completed = 0;
-                videoChecks.forEach(check => {
-                    if (check.checked) completed++;
+            // وظيفة إعداد أحداث الأزرار
+            function setupButtons() {
+                // أزرار إكمال الدروس
+                const completeButtons = document.querySelectorAll('.complete-btn');
+                completeButtons.forEach(button => {
+                    button.addEventListener('click', function(e) {
+                        e.stopPropagation();
+                        const videoId = this.getAttribute('data-video-id');
+                        const videoCard = this.closest('.video-card');
+                        
+                        // تبديل الحالة
+                        const isCompleted = progressData[videoId];
+                        
+                        if (isCompleted) {
+                            // تحويل إلى غير مكتمل
+                            this.classList.remove('btn-success');
+                            this.classList.add('btn-outline-cyber');
+                            this.innerHTML = '<i class="fas fa-check me-1"></i>أكملت';
+                            videoCard.classList.remove('completed');
+                            progressData[videoId] = false;
+                            completedVideos--;
+                        } else {
+                            // تحويل إلى مكتمل
+                            this.classList.remove('btn-outline-cyber');
+                            this.classList.add('btn-success');
+                            this.innerHTML = '<i class="fas fa-check me-1"></i>مكتمل';
+                            videoCard.classList.add('completed');
+                            progressData[videoId] = true;
+                            completedVideos++;
+                        }
+                        
+                        // حفظ التقدم
+                        saveProgress();
+                        // تحديث شريط التقدم
+                        updateProgress();
+                    });
                 });
                 
-                const total = videoChecks.length;
-                const percentage = total > 0 ? Math.round((completed / total) * 100) : 0;
+                // زر إعادة تعيين التقدم
+                document.getElementById('reset-progress').addEventListener('click', function() {
+                    if (confirm('هل تريد حقاً إعادة تعيين جميع علامات الإكتمال؟')) {
+                        resetProgress();
+                    }
+                });
                 
-                // Update UI
-                document.getElementById('completed-count').textContent = completed;
+                // أزرار فتح/غلق الأسبوع
+                document.querySelectorAll('.week-header').forEach(header => {
+                    header.addEventListener('click', function() {
+                        const icon = this.querySelector('i.fa-chevron-down');
+                        if (icon) {
+                            icon.classList.toggle('fa-rotate-180');
+                        }
+                    });
+                });
+            }
+            
+            // وظيفة تحديث شريط التقدم
+            function updateProgress() {
+                // حساب النسبة المئوية
+                const percentage = Math.round((completedVideos / totalVideos) * 100);
+                
+                // تحديث الواجهة
+                document.getElementById('completed-count').textContent = completedVideos;
                 document.getElementById('progress-percentage').textContent = percentage + '%';
                 document.getElementById('progress-fill').style.width = percentage + '%';
                 
-                // Update status message
-                let statusMessage = 'ابدأ رحلتك الآن!';
-                let statusColor = 'var(--primary-color)';
+                // تحديث رسالة الحالة
+                updateStatusMessage(percentage);
+                
+                // التحقق إذا كانت النسبة 100%
+                if (percentage === 100 && completedVideos > 0) {
+                    showCelebration();
+                }
+            }
+            
+            // وظيفة تحديث رسالة الحالة
+            function updateStatusMessage(percentage) {
+                const statusElement = document.getElementById('progress-status');
+                let message = 'ابدأ رحلتك الآن!';
+                let color = 'var(--primary-color)';
                 
                 if (percentage > 0 && percentage < 25) {
-                    statusMessage = 'بدأت رحلتك! استمر في التقدم.';
-                    statusColor = 'var(--primary-color)';
+                    message = 'بدأت رحلتك! استمر في التقدم.';
+                    color = 'var(--primary-color)';
                 } else if (percentage >= 25 && percentage < 50) {
-                    statusMessage = 'أنت على الطريق الصحيح! استمر.';
-                    statusColor = 'var(--success-color)';
+                    message = 'أنت على الطريق الصحيح! استمر.';
+                    color = 'var(--success-color)';
                 } else if (percentage >= 50 && percentage < 75) {
-                    statusMessage = 'وصلت إلى منتصف الطريق! ممتاز.';
-                    statusColor = 'var(--warning-color)';
+                    message = 'وصلت إلى منتصف الطريق! ممتاز.';
+                    color = 'var(--warning-color)';
                 } else if (percentage >= 75 && percentage < 100) {
-                    statusMessage = 'قريب من النهاية! استمر في التركيز.';
-                    statusColor = 'var(--accent-color)';
+                    message = 'قريب من النهاية! استمر في التركيز.';
+                    color = 'var(--accent-color)';
                 } else if (percentage === 100) {
-                    statusMessage = 'ممتاز! لقد أكملت الأسبوع الأول بنجاح! 🎉';
-                    statusColor = 'var(--success-color)';
+                    message = 'ممتاز! لقد أكملت الأسبوع الأول بنجاح! 🎉';
+                    color = 'var(--success-color)';
                 }
                 
-                document.getElementById('progress-status').textContent = statusMessage;
-                document.getElementById('progress-status').style.color = statusColor;
-                
-                // Save progress to localStorage
-                saveProgress();
-                
-                // Celebrate if 100%
-                if (percentage === 100) {
-                    celebrateCompletion();
+                statusElement.textContent = message;
+                statusElement.style.color = color;
+            }
+            
+            // وظيفة حفظ التقدم
+            function saveProgress() {
+                try {
+                    localStorage.setItem('brightMinds_progress', JSON.stringify(progressData));
+                    localStorage.setItem('brightMinds_completed', completedVideos.toString());
+                } catch (error) {
+                    console.log('خطأ في حفظ التقدم:', error);
                 }
             }
             
-            // Function to save progress to localStorage
-            function saveProgress() {
-                const progress = {};
-                const videoChecks = document.querySelectorAll('.video-check');
+            // وظيفة تحميل التقدم
+            function loadProgress() {
+                try {
+                    const savedProgress = localStorage.getItem('brightMinds_progress');
+                    const savedCompleted = localStorage.getItem('brightMinds_completed');
+                    
+                    if (savedProgress) {
+                        const loadedProgress = JSON.parse(savedProgress);
+                        
+                        // تحديث مصفوفة التقدم
+                        Object.assign(progressData, loadedProgress);
+                        
+                        // حساب عدد الفيديوهات المكتملة
+                        completedVideos = 0;
+                        Object.values(progressData).forEach(isCompleted => {
+                            if (isCompleted) completedVideos++;
+                        });
+                        
+                        // تحديث الواجهة بناءً على البيانات المحفوظة
+                        updateUIFromProgress();
+                    }
+                    
+                    if (savedCompleted) {
+                        completedVideos = parseInt(savedCompleted);
+                    }
+                    
+                    updateProgress();
+                } catch (error) {
+                    console.log('خطأ في تحميل التقدم:', error);
+                }
+            }
+            
+            // وظيفة تحديث الواجهة من بيانات التقدم
+            function updateUIFromProgress() {
+                const completeButtons = document.querySelectorAll('.complete-btn');
+                completeButtons.forEach(button => {
+                    const videoId = button.getAttribute('data-video-id');
+                    const videoCard = button.closest('.video-card');
+                    
+                    if (progressData[videoId]) {
+                        // إذا كان مكتملاً
+                        button.classList.remove('btn-outline-cyber');
+                        button.classList.add('btn-success');
+                        button.innerHTML = '<i class="fas fa-check me-1"></i>مكتمل';
+                        videoCard.classList.add('completed');
+                    } else {
+                        // إذا كان غير مكتمل
+                        button.classList.remove('btn-success');
+                        button.classList.add('btn-outline-cyber');
+                        button.innerHTML = '<i class="fas fa-check me-1"></i>أكملت';
+                        videoCard.classList.remove('completed');
+                    }
+                });
+            }
+            
+            // وظيفة إعادة تعيين التقدم
+            function resetProgress() {
+                // إعادة تعيين البيانات
+                for (let i = 1; i <= totalVideos; i++) {
+                    progressData[i] = false;
+                }
+                completedVideos = 0;
                 
-                videoChecks.forEach(check => {
-                    const category = check.getAttribute('data-category');
-                    const id = check.getAttribute('data-id');
-                    const key = `${category}-${id}`;
-                    progress[key] = check.checked;
+                // إعادة تعيين الواجهة
+                const completeButtons = document.querySelectorAll('.complete-btn');
+                const videoCards = document.querySelectorAll('.video-card');
+                
+                completeButtons.forEach(button => {
+                    button.classList.remove('btn-success');
+                    button.classList.add('btn-outline-cyber');
+                    button.innerHTML = '<i class="fas fa-check me-1"></i>أكملت';
                 });
                 
-                localStorage.setItem('brightMinds-progress', JSON.stringify(progress));
-            }
-            
-            // Function to load progress from localStorage
-            function loadProgress() {
-                const savedProgress = localStorage.getItem('brightMinds-progress');
-                if (savedProgress) {
-                    const progress = JSON.parse(savedProgress);
-                    
-                    // Apply saved state to checkboxes
-                    const videoChecks = document.querySelectorAll('.video-check');
-                    
-                    videoChecks.forEach(check => {
-                        const category = check.getAttribute('data-category');
-                        const id = check.getAttribute('data-id');
-                        const key = `${category}-${id}`;
-                        if (progress[key]) {
-                            check.checked = true;
-                            // Update button appearance
-                            const label = check.parentElement;
-                            if (label) {
-                                label.classList.remove('btn-outline-cyber');
-                                label.classList.add('btn-success');
-                                label.innerHTML = '<i class="fas fa-check me-1"></i>مكتمل';
-                            }
-                        }
-                    });
-                    
-                    // Update progress display
-                    updateProgress();
+                videoCards.forEach(card => {
+                    card.classList.remove('completed');
+                });
+                
+                // مسح التخزين المحلي
+                localStorage.removeItem('brightMinds_progress');
+                localStorage.removeItem('brightMinds_completed');
+                
+                // تحديث التقدم
+                updateProgress();
+                
+                // إزالة رسالة التهنئة إذا كانت موجودة
+                const celebration = document.querySelector('.celebration-message');
+                if (celebration) {
+                    celebration.remove();
                 }
             }
             
-            // Function to celebrate completion
-            function celebrateCompletion() {
-                // Create celebration element
+            // وظيفة عرض رسالة التهنئة
+            function showCelebration() {
+                // التحقق إذا كانت الرسالة موجودة بالفعل
+                if (document.querySelector('.celebration-message')) {
+                    return;
+                }
+                
                 const celebration = document.createElement('div');
-                celebration.className = 'text-center mt-4 p-3 rounded';
-                celebration.style.background = 'linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(0, 255, 136, 0.1))';
+                celebration.className = 'celebration-message alert alert-success mt-4 animate__animated animate__fadeInUp';
+                celebration.style.backgroundColor = 'rgba(0, 255, 136, 0.1)';
                 celebration.style.border = '2px solid var(--success-color)';
+                celebration.style.borderRadius = '10px';
                 celebration.innerHTML = `
-                    <h4 style="color: var(--success-color);">
-                        <i class="fas fa-trophy me-2"></i>تهانينا! لقد أكملت الأسبوع الأول!
-                    </h4>
-                    <p class="mb-0">فريق BrightMinds فخور بإنجازك. استعد للأسبوع القادم!</p>
+                    <div class="d-flex align-items-center">
+                        <i class="fas fa-trophy fa-2x me-3" style="color: var(--success-color);"></i>
+                        <div>
+                            <h4 class="mb-1" style="color: var(--success-color);">تهانينا! لقد أكملت الأسبوع الأول</h4>
+                            <p class="mb-0">فريق BrightMinds فخور بإنجازك. استعد للأسبوع القادم!</p>
+                        </div>
+                    </div>
                 `;
                 
-                // Add celebration to the page
+                // إضافة الرسالة في أعلى المحتوى
                 const weekContent = document.getElementById('week1-content');
-                weekContent.appendChild(celebration);
+                weekContent.prepend(celebration);
                 
-                // Add confetti effect
+                // إضافة تأثير confetti
                 createConfetti();
             }
             
-            // Function to create confetti effect
+            // وظيفة إنشاء تأثير confetti
             function createConfetti() {
                 const colors = ['#00d4ff', '#6a11cb', '#ff0080', '#00ff88', '#ffcc00'];
                 const confettiCount = 100;
@@ -1722,7 +1727,7 @@
                     
                     document.body.appendChild(confetti);
                     
-                    // Animation
+                    // إضافة animation
                     const animation = confetti.animate([
                         { transform: 'translateY(0) rotate(0deg)', opacity: 1 },
                         { transform: `translateY(${window.innerHeight}px) rotate(${Math.random() * 360}deg)`, opacity: 0 }
@@ -1731,30 +1736,10 @@
                         easing: 'cubic-bezier(0.215, 0.610, 0.355, 1)'
                     });
                     
-                    // Remove confetti after animation
+                    // إزالة confetti بعد انتهاء animation
                     animation.onfinish = () => confetti.remove();
                 }
             }
-            
-            // Add cyber security motivational quotes on page load
-            const quotes = [
-                "الهاكر الحقيقي لا يخترق الأنظمة، بل يبني أنظمة لا يمكن اختراقها.",
-                "في الأمن السيبراني، كل سطر كود هو خط دفاع، وكل ثغرة هي درس جديد.",
-                "التعلم في الأمن السيبراني مثل السباحة ضد التيار: إذا توقفت، سترجع للخلف.",
-                "أفضل دفاع هو فهم الهجوم. أفضل هجوم هو بناء دفاع لا يمكن اختراقه."
-            ];
-            
-            // Randomly display a quote in the motivation section
-            const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
-            const quoteElement = document.createElement('div');
-            quoteElement.className = 'text-center mt-3';
-            quoteElement.innerHTML = `
-                <div style="color: var(--primary-color); font-size: 1.1rem; font-style: italic;">
-                    <i class="fas fa-quote-right me-2"></i>${randomQuote}<i class="fas fa-quote-left ms-2"></i>
-                </div>
-            `;
-            
-            document.querySelector('.motivation-section .row .col-lg-10').appendChild(quoteElement);
         });
     </script>
 </body>
