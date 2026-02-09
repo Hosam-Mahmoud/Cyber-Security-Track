@@ -413,42 +413,29 @@
             font-size: 1.2rem;
         }
         
-        .learning-list {
+        /* Text List for items without videos */
+        .text-list {
             list-style-type: none;
             padding-right: 0;
+            margin-bottom: 20px;
         }
         
-        .learning-list li {
-            padding: 12px 0;
-            border-bottom: 1px dashed rgba(0, 212, 255, 0.2);
+        .text-list li {
+            padding: 10px 15px;
+            background: rgba(255, 255, 255, 0.02);
+            margin-bottom: 8px;
+            border-radius: 8px;
+            border-right: 3px solid var(--secondary-color);
+            color: var(--text-color);
             display: flex;
             align-items: center;
-            transition: all 0.3s ease;
         }
         
-        .learning-list li:hover {
-            background-color: rgba(0, 212, 255, 0.05);
-            padding-right: 10px;
-            border-radius: 5px;
+        .text-list li i {
+            margin-left: 10px;
+            color: var(--secondary-color);
         }
-        
-        .learning-list li:last-child {
-            border-bottom: none;
-        }
-        
-        .check-item {
-            display: flex;
-            align-items: center;
-            cursor: pointer;
-            width: 100%;
-        }
-        
-        .check-item input {
-            margin-left: 15px;
-            transform: scale(1.3);
-            cursor: pointer;
-        }
-        
+
         /* Video List */
         .video-list {
             margin-top: 35px;
@@ -744,135 +731,43 @@
         
         /* Responsive */
         @media (max-width: 1200px) {
-            .team-name {
-                font-size: 2.5rem;
-            }
-            
-            .track-name {
-                font-size: 1.4rem;
-            }
+            .team-name { font-size: 2.5rem; }
+            .track-name { font-size: 1.4rem; }
         }
         
         @media (max-width: 992px) {
-            .team-name {
-                font-size: 2.2rem;
-            }
-            
-            .member-card {
-                min-width: 150px;
-            }
+            .team-name { font-size: 2.2rem; }
+            .member-card { min-width: 150px; }
         }
         
         @media (max-width: 768px) {
-            .team-name {
-                font-size: 2rem;
-                text-align: center;
-            }
-            
-            .track-name {
-                font-size: 1.2rem;
-                text-align: center;
-                border: none;
-                padding-right: 0;
-                margin-bottom: 15px;
-            }
-            
-            .team-members {
-                gap: 10px;
-            }
-            
-            .member-card {
-                min-width: 130px;
-                padding: 10px 15px;
-            }
-            
-            .motivation-section {
-                padding: 20px;
-            }
-            
-            .motivation-text {
-                font-size: 1.1rem;
-            }
-            
-            .week-header h2 {
-                font-size: 1.5rem;
-            }
-            
-            .topic-card {
-                padding: 20px;
-            }
-            
-            .topic-title {
-                font-size: 1.4rem;
-            }
-            
-            .video-card {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            
-            .video-actions {
-                margin-top: 15px;
-                width: 100%;
-                justify-content: flex-end;
-            }
+            .team-name { font-size: 2rem; text-align: center; }
+            .track-name { font-size: 1.2rem; text-align: center; border: none; padding-right: 0; margin-bottom: 15px; }
+            .team-members { gap: 10px; }
+            .member-card { min-width: 130px; padding: 10px 15px; }
+            .motivation-section { padding: 20px; }
+            .motivation-text { font-size: 1.1rem; }
+            .week-header h2 { font-size: 1.5rem; }
+            .topic-card { padding: 20px; }
+            .topic-title { font-size: 1.4rem; }
+            .video-card { flex-direction: column; align-items: flex-start; }
+            .video-actions { margin-top: 15px; width: 100%; justify-content: flex-end; }
         }
         
         @media (max-width: 576px) {
-            .team-name {
-                font-size: 1.8rem;
-            }
-            
-            .member-card {
-                min-width: 110px;
-                padding: 8px 12px;
-            }
-            
-            .member-name {
-                font-size: 1rem;
-            }
-            
-            .motivation-section {
-                padding: 15px;
-            }
-            
-            .motivation-text {
-                font-size: 1rem;
-            }
-            
-            .progress-container {
-                padding: 20px;
-            }
-            
-            .week-header {
-                padding: 15px 20px;
-            }
-            
-            .week-header h2 {
-                font-size: 1.3rem;
-            }
-            
-            .week-content {
-                padding: 20px;
-            }
-            
-            .topic-card {
-                padding: 15px;
-            }
-            
-            .topic-title {
-                font-size: 1.2rem;
-            }
-            
-            .video-number {
-                width: 30px;
-                height: 30px;
-                font-size: 0.9rem;
-            }
-            
-            .video-title {
-                font-size: 1.1rem;
-            }
+            .team-name { font-size: 1.8rem; }
+            .member-card { min-width: 110px; padding: 8px 12px; }
+            .member-name { font-size: 1rem; }
+            .motivation-section { padding: 15px; }
+            .motivation-text { font-size: 1rem; }
+            .progress-container { padding: 20px; }
+            .week-header { padding: 15px 20px; }
+            .week-header h2 { font-size: 1.3rem; }
+            .week-content { padding: 20px; }
+            .topic-card { padding: 15px; }
+            .topic-title { font-size: 1.2rem; }
+            .video-number { width: 30px; height: 30px; font-size: 0.9rem; }
+            .video-title { font-size: 1.1rem; }
         }
     </style>
 </head>
@@ -893,7 +788,6 @@
                         <div class="member-card">
                             <div class="member-name">حسام محمود</div>
                         </div>
-
                           <div class="member-card">
                             <div class="member-name">اسلام حاتم</div>
                         </div>
@@ -903,7 +797,6 @@
                         <div class="member-card">
                             <div class="member-name">علا حسام</div>
                         </div>
-                      
                     </div>
                 </div>
                 <div class="col-lg-4 text-center mt-4 mt-lg-0">
@@ -939,18 +832,18 @@
         <!-- Progress Section -->
         <section class="progress-container animate__animated animate__fadeInUp">
             <h3 class="mb-4" style="color: var(--primary-color);">
-                <i class="fas fa-chart-line me-2"></i>تقدمك في الأسبوع الأول
+                <i class="fas fa-chart-line me-2"></i>تقدمك في المسار
             </h3>
             
             <div class="progress-label">
-                <span>الأسبوع الأول - أساسيات الأمن السيبراني</span>
+                <span>المسار الكامل (الأسبوع الأول والثاني)</span>
                 <span id="progress-percentage">0%</span>
             </div>
             <div class="progress-bar">
                 <div class="progress-fill" id="progress-fill"></div>
             </div>
             <div class="progress-stats">
-                <span>مكتمل: <span id="completed-count">0</span> من <span id="total-count">23</span></span>
+                <span>مكتمل: <span id="completed-count">0</span> من <span id="total-count">37</span></span>
                 <span class="progress-status" id="progress-status">ابدأ رحلتك الآن!</span>
             </div>
             
@@ -991,7 +884,7 @@
                             <i class="fas fa-video me-2"></i>فيديوهات Networking Fundamentals
                         </h5>
                         
-                        <!-- فيديو 1 -->
+                        <!-- Video 1 -->
                         <div class="video-card" data-video-id="1">
                             <div class="video-info">
                                 <span class="video-number">1</span>
@@ -1008,7 +901,7 @@
                             </div>
                         </div>
                         
-                        <!-- فيديو 2 -->
+                        <!-- Video 2 -->
                         <div class="video-card" data-video-id="2">
                             <div class="video-info">
                                 <span class="video-number">2</span>
@@ -1025,7 +918,7 @@
                             </div>
                         </div>
                         
-                        <!-- فيديو 3 -->
+                        <!-- Video 3 -->
                         <div class="video-card" data-video-id="3">
                             <div class="video-info">
                                 <span class="video-number">3</span>
@@ -1042,7 +935,7 @@
                             </div>
                         </div>
                         
-                        <!-- فيديو 4 -->
+                        <!-- Video 4 -->
                         <div class="video-card" data-video-id="4">
                             <div class="video-info">
                                 <span class="video-number">4</span>
@@ -1059,7 +952,7 @@
                             </div>
                         </div>
                         
-                        <!-- فيديو 5 -->
+                        <!-- Video 5 -->
                         <div class="video-card" data-video-id="5">
                             <div class="video-info">
                                 <span class="video-number">5</span>
@@ -1076,7 +969,7 @@
                             </div>
                         </div>
                         
-                        <!-- فيديو 6 -->
+                        <!-- Video 6 -->
                         <div class="video-card" data-video-id="6">
                             <div class="video-info">
                                 <span class="video-number">6</span>
@@ -1093,7 +986,7 @@
                             </div>
                         </div>
                         
-                        <!-- فيديو 7 -->
+                        <!-- Video 7 -->
                         <div class="video-card" data-video-id="7">
                             <div class="video-info">
                                 <span class="video-number">7</span>
@@ -1110,7 +1003,7 @@
                             </div>
                         </div>
                         
-                        <!-- فيديو 8 -->
+                        <!-- Video 8 -->
                         <div class="video-card" data-video-id="8">
                             <div class="video-info">
                                 <span class="video-number">8</span>
@@ -1127,7 +1020,7 @@
                             </div>
                         </div>
                         
-                        <!-- فيديو 9 -->
+                        <!-- Video 9 -->
                         <div class="video-card" data-video-id="9">
                             <div class="video-info">
                                 <span class="video-number">9</span>
@@ -1144,7 +1037,7 @@
                             </div>
                         </div>
                         
-                        <!-- فيديو 10 -->
+                        <!-- Video 10 -->
                         <div class="video-card" data-video-id="10">
                             <div class="video-info">
                                 <span class="video-number">10</span>
@@ -1161,7 +1054,7 @@
                             </div>
                         </div>
                         
-                        <!-- فيديو 11 -->
+                        <!-- Video 11 -->
                         <div class="video-card" data-video-id="11">
                             <div class="video-info">
                                 <span class="video-number">11</span>
@@ -1178,7 +1071,7 @@
                             </div>
                         </div>
                         
-                        <!-- فيديو 12 -->
+                        <!-- Video 12 -->
                         <div class="video-card" data-video-id="12">
                             <div class="video-info">
                                 <span class="video-number">12</span>
@@ -1213,7 +1106,7 @@
                             <i class="fas fa-video me-2"></i>فيديوهات Security Fundamentals
                         </h5>
                         
-                        <!-- فيديو 13 -->
+                        <!-- Video 13 -->
                         <div class="video-card" data-video-id="13">
                             <div class="video-info">
                                 <span class="video-number">13</span>
@@ -1230,7 +1123,7 @@
                             </div>
                         </div>
                         
-                        <!-- فيديو 14 -->
+                        <!-- Video 14 -->
                         <div class="video-card" data-video-id="14">
                             <div class="video-info">
                                 <span class="video-number">14</span>
@@ -1247,7 +1140,7 @@
                             </div>
                         </div>
                         
-                        <!-- فيديو 15 -->
+                        <!-- Video 15 -->
                         <div class="video-card" data-video-id="15">
                             <div class="video-info">
                                 <span class="video-number">15</span>
@@ -1264,7 +1157,7 @@
                             </div>
                         </div>
                         
-                        <!-- فيديو 16 -->
+                        <!-- Video 16 -->
                         <div class="video-card" data-video-id="16">
                             <div class="video-info">
                                 <span class="video-number">16</span>
@@ -1281,7 +1174,7 @@
                             </div>
                         </div>
                         
-                        <!-- فيديو 17 -->
+                        <!-- Video 17 -->
                         <div class="video-card" data-video-id="17">
                             <div class="video-info">
                                 <span class="video-number">17</span>
@@ -1298,7 +1191,7 @@
                             </div>
                         </div>
                         
-                        <!-- فيديو 18 -->
+                        <!-- Video 18 -->
                         <div class="video-card" data-video-id="18">
                             <div class="video-info">
                                 <span class="video-number">18</span>
@@ -1315,7 +1208,7 @@
                             </div>
                         </div>
                         
-                        <!-- فيديو 19 -->
+                        <!-- Video 19 -->
                         <div class="video-card" data-video-id="19">
                             <div class="video-info">
                                 <span class="video-number">19</span>
@@ -1332,7 +1225,7 @@
                             </div>
                         </div>
                         
-                        <!-- فيديو 20 -->
+                        <!-- Video 20 -->
                         <div class="video-card" data-video-id="20">
                             <div class="video-info">
                                 <span class="video-number">20</span>
@@ -1349,7 +1242,7 @@
                             </div>
                         </div>
                         
-                        <!-- فيديو 21 -->
+                        <!-- Video 21 -->
                         <div class="video-card" data-video-id="21">
                             <div class="video-info">
                                 <span class="video-number">21</span>
@@ -1366,7 +1259,7 @@
                             </div>
                         </div>
                         
-                        <!-- فيديو 22 -->
+                        <!-- Video 22 -->
                         <div class="video-card" data-video-id="22">
                             <div class="video-info">
                                 <span class="video-number">22</span>
@@ -1397,7 +1290,7 @@
                     </div>
                     
                     <div class="video-list">
-                        <!-- فيديو 23 -->
+                        <!-- Video 23 -->
                         <div class="video-card" data-video-id="23">
                             <div class="video-info">
                                 <span class="video-number">23</span>
@@ -1409,6 +1302,358 @@
                                     <i class="fas fa-external-link-alt me-1"></i>شاهد الفيديو
                                 </a>
                                 <button class="btn btn-outline-cyber btn-sm complete-btn" data-video-id="23">
+                                    <i class="fas fa-check me-1"></i>أكملت
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Cyber Line -->
+        <div class="cyber-line"></div>
+
+        <!-- Week 2 Content -->
+        <section class="week-section">
+            <div class="week-header" data-bs-toggle="collapse" data-bs-target="#week2-content" aria-expanded="false">
+                <h2><i class="fas fa-user-secret me-2"></i>الأسبوع الثاني - Ethical Hacking (الهجوم)</h2>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            
+            <div class="week-content collapse" id="week2-content">
+                <div class="alert alert-info d-flex align-items-center" role="alert" style="background: rgba(0, 212, 255, 0.1); border-color: var(--primary-color); color: var(--primary-color);">
+                    <i class="fas fa-info-circle fa-2x ms-3"></i>
+                    <div>
+                        <strong>مرحباً بك في المرحلة الثانية!</strong><br>
+                        هنا تبدأ تبقى هاكر بجد. ركز على فهم الثغرات وليس الحفظ فقط.
+                    </div>
+                </div>
+
+                <!-- Topic 1: Web Security & Bug Hunting -->
+                <div class="topic-card">
+                    <div class="topic-title">
+                        <i class="fas fa-bug"></i>
+                        Web Security & Bug Hunting
+                    </div>
+                    
+                    <div class="topic-goal">
+                        🎯 الهدف: تعرف تشوف الثغرة بعينك وتفهم OWASP Top 10 وأهم الثغرات.
+                    </div>
+                    
+                    <!-- Text items without video links but important -->
+                    <h6 class="mt-4 mb-3" style="color: var(--warning-color);">نقاط هامة للبحث والدراسة:</h6>
+                    <ul class="text-list">
+                        <li><i class="fas fa-exclamation-triangle"></i> Auth Bypass</li>
+                        <li><i class="fas fa-exclamation-triangle"></i> Business Logic Bugs</li>
+                    </ul>
+
+                    <div class="video-list">
+                        <h5 class="video-list-title">
+                            <i class="fas fa-video me-2"></i>فيديوهات Web Security
+                        </h5>
+
+                        <!-- Video 24 -->
+                        <div class="video-card" data-video-id="24">
+                            <div class="video-info">
+                                <span class="video-number">24</span>
+                                <span class="video-title">OWASP Top 10</span>
+                                <div class="video-desc">أهم 10 مخاطر أمنية لتطبيقات الويب</div>
+                            </div>
+                            <div class="video-actions">
+                                <a href="https://youtu.be/BwIT7n35LIw?si=iPCncCVmEGXw2RsE" target="_blank" class="btn btn-cyber btn-sm">
+                                    <i class="fas fa-external-link-alt me-1"></i>شاهد الفيديو
+                                </a>
+                                <button class="btn btn-outline-cyber btn-sm complete-btn" data-video-id="24">
+                                    <i class="fas fa-check me-1"></i>أكملت
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Video 25 -->
+                        <div class="video-card" data-video-id="25">
+                            <div class="video-info">
+                                <span class="video-number">25</span>
+                                <span class="video-title">SQL Injection</span>
+                                <div class="video-desc">ثغرة حقن SQL وكيفية استغلالها</div>
+                            </div>
+                            <div class="video-actions">
+                                <a href="https://youtu.be/4zwbyvO2ZQ8?si=cwslZhZmtFOIho-k" target="_blank" class="btn btn-cyber btn-sm">
+                                    <i class="fas fa-external-link-alt me-1"></i>شاهد الفيديو
+                                </a>
+                                <button class="btn btn-outline-cyber btn-sm complete-btn" data-video-id="25">
+                                    <i class="fas fa-check me-1"></i>أكملت
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Video 26 -->
+                        <div class="video-card" data-video-id="26">
+                            <div class="video-info">
+                                <span class="video-number">26</span>
+                                <span class="video-title">XSS (Cross-Site Scripting)</span>
+                                <div class="video-desc">ثغرة السكربتات المشتركة بين المواقع</div>
+                            </div>
+                            <div class="video-actions">
+                                <a href="https://youtu.be/F3rfSh31KhA?si=CBXoFLTWsNUn-h8m" target="_blank" class="btn btn-cyber btn-sm">
+                                    <i class="fas fa-external-link-alt me-1"></i>شاهد الفيديو
+                                </a>
+                                <button class="btn btn-outline-cyber btn-sm complete-btn" data-video-id="26">
+                                    <i class="fas fa-check me-1"></i>أكملت
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Video 27 -->
+                        <div class="video-card" data-video-id="27">
+                            <div class="video-info">
+                                <span class="video-number">27</span>
+                                <span class="video-title">CSRF (Cross-Site Request Forgery)</span>
+                                <div class="video-desc">ثغرة تزوير الطلب عبر المواقع</div>
+                            </div>
+                            <div class="video-actions">
+                                <a href="https://youtu.be/Sk3498DPjiw?si=PHeAwW9dYf6hAX9s" target="_blank" class="btn btn-cyber btn-sm">
+                                    <i class="fas fa-external-link-alt me-1"></i>شاهد الفيديو
+                                </a>
+                                <button class="btn btn-outline-cyber btn-sm complete-btn" data-video-id="27">
+                                    <i class="fas fa-check me-1"></i>أكملت
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Video 28 -->
+                        <div class="video-card" data-video-id="28">
+                            <div class="video-info">
+                                <span class="video-number">28</span>
+                                <span class="video-title">IDOR (Insecure Direct Object References)</span>
+                                <div class="video-desc">ثغرة الإشارة المباشرة للكائنات بشكل غير آمن</div>
+                            </div>
+                            <div class="video-actions">
+                                <a href="https://youtu.be/iGReYyaFAIs?si=AaS4ovHjdMwj-dgp" target="_blank" class="btn btn-cyber btn-sm">
+                                    <i class="fas fa-external-link-alt me-1"></i>شاهد الفيديو
+                                </a>
+                                <button class="btn btn-outline-cyber btn-sm complete-btn" data-video-id="28">
+                                    <i class="fas fa-check me-1"></i>أكملت
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Video 29 -->
+                        <div class="video-card" data-video-id="29">
+                            <div class="video-info">
+                                <span class="video-number">29</span>
+                                <span class="video-title">File Upload Vulnerabilities</span>
+                                <div class="video-desc">ثغرات رفع الملفات وكيفية استغلالها</div>
+                            </div>
+                            <div class="video-actions">
+                                <a href="https://youtu.be/6eeYmW6QnJc?si=rharKQw2-vJLFKxj" target="_blank" class="btn btn-cyber btn-sm">
+                                    <i class="fas fa-external-link-alt me-1"></i>شاهد الفيديو
+                                </a>
+                                <button class="btn btn-outline-cyber btn-sm complete-btn" data-video-id="29">
+                                    <i class="fas fa-check me-1"></i>أكملت
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Video 30 -->
+                        <div class="video-card" data-video-id="30">
+                            <div class="video-info">
+                                <span class="video-number">30</span>
+                                <span class="video-title">SSRF (Server-Side Request Forgery)</span>
+                                <div class="video-desc">ثغرة تزوير الطلب من جانب الخادم</div>
+                            </div>
+                            <div class="video-actions">
+                                <a href="https://youtu.be/-M1Hu8rTrvo?si=Y42HAc6-gp5J0VBx" target="_blank" class="btn btn-cyber btn-sm">
+                                    <i class="fas fa-external-link-alt me-1"></i>شاهد الفيديو
+                                </a>
+                                <button class="btn btn-outline-cyber btn-sm complete-btn" data-video-id="30">
+                                    <i class="fas fa-check me-1"></i>أكملت
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Video 31 -->
+                        <div class="video-card" data-video-id="31">
+                            <div class="video-info">
+                                <span class="video-number">31</span>
+                                <span class="video-title">OSINT (Open Source Intelligence)</span>
+                                <div class="video-desc">المعلومات الاستخباراتية من المصادر المفتوحة</div>
+                            </div>
+                            <div class="video-actions">
+                                <a href="https://youtu.be/50mZkISVoE0?si=LscEtY7jPgVQjDGh" target="_blank" class="btn btn-cyber btn-sm">
+                                    <i class="fas fa-external-link-alt me-1"></i>شاهد الفيديو
+                                </a>
+                                <button class="btn btn-outline-cyber btn-sm complete-btn" data-video-id="31">
+                                    <i class="fas fa-check me-1"></i>أكملت
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Video 32 (NEW) -->
+                        <div class="video-card" data-video-id="32">
+                            <div class="video-info">
+                                <span class="video-number">32</span>
+                                <span class="video-title">How JS files can help you in bug hunting</span>
+                                <div class="video-desc">كيف تساعدك ملفات JavaScript في اكتشاف الثغرات</div>
+                            </div>
+                            <div class="video-actions">
+                                <a href="https://youtu.be/tV5xbcKCLSY?si=0lYiPMZs8Qb95O7h" target="_blank" class="btn btn-cyber btn-sm">
+                                    <i class="fas fa-external-link-alt me-1"></i>شاهد الفيديو
+                                </a>
+                                <button class="btn btn-outline-cyber btn-sm complete-btn" data-video-id="32">
+                                    <i class="fas fa-check me-1"></i>أكملت
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Topic 2: Hacking Tools -->
+                <div class="topic-card">
+                    <div class="topic-title">
+                        <i class="fas fa-tools"></i>
+                        Hacking Tools - أدوات الاختراق
+                    </div>
+                    
+                    <div class="topic-goal">
+                        🎯 الهدف: تستخدم الأدوات بعقل مش Copy/Paste.
+                    </div>
+
+                    <h6 class="mt-4 mb-3" style="color: var(--warning-color);">أدوات إضافية للبحث:</h6>
+                    <ul class="text-list">
+                        <li><i class="fas fa-terminal"></i> Metasploit Framework</li>
+                    </ul>
+                    
+                    <div class="video-list">
+                        <h5 class="video-list-title">
+                            <i class="fas fa-video me-2"></i>فيديوهات الأدوات
+                        </h5>
+
+                        <!-- Video 33 -->
+                        <div class="video-card" data-video-id="33">
+                            <div class="video-info">
+                                <span class="video-number">33</span>
+                                <span class="video-title">Burp Suite</span>
+                                <div class="video-desc">السلاح الأمثل لاختبار تطبيقات الويب</div>
+                            </div>
+                            <div class="video-actions">
+                                <a href="https://youtu.be/lKl4qy2d8Kc?si=KXLbYZiiwMhXDch4" target="_blank" class="btn btn-cyber btn-sm">
+                                    <i class="fas fa-external-link-alt me-1"></i>شاهد الفيديو
+                                </a>
+                                <button class="btn btn-outline-cyber btn-sm complete-btn" data-video-id="33">
+                                    <i class="fas fa-check me-1"></i>أكملت
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Video 34 -->
+                        <div class="video-card" data-video-id="34">
+                            <div class="video-info">
+                                <span class="video-number">34</span>
+                                <span class="video-title">Nmap</span>
+                                <div class="video-desc">أداة مسح الشبكات واكتشاف الأجهزة</div>
+                            </div>
+                            <div class="video-actions">
+                                <a href="https://youtu.be/a9a3-s8vipU?si=7NPNb86MRZB-b-1W" target="_blank" class="btn btn-cyber btn-sm">
+                                    <i class="fas fa-external-link-alt me-1"></i>شاهد الفيديو
+                                </a>
+                                <button class="btn btn-outline-cyber btn-sm complete-btn" data-video-id="34">
+                                    <i class="fas fa-check me-1"></i>أكملت
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Video 35 -->
+                        <div class="video-card" data-video-id="35">
+                            <div class="video-info">
+                                <span class="video-number">35</span>
+                                <span class="video-title">Gobuster</span>
+                                <div class="video-desc">أداة اكتشاف المجلدات والملفات المخفية</div>
+                            </div>
+                            <div class="video-actions">
+                                <a href="https://youtu.be/aN5F2cIDBSk?si=Vm05oummudxehoeS" target="_blank" class="btn btn-cyber btn-sm">
+                                    <i class="fas fa-external-link-alt me-1"></i>شاهد الفيديو
+                                </a>
+                                <button class="btn btn-outline-cyber btn-sm complete-btn" data-video-id="35">
+                                    <i class="fas fa-check me-1"></i>أكملت
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Video 36 -->
+                        <div class="video-card" data-video-id="36">
+                            <div class="video-info">
+                                <span class="video-number">36</span>
+                                <span class="video-title">Wireshark</span>
+                                <div class="video-desc">محلل بروتوكولات الشبكة الشهير</div>
+                            </div>
+                            <div class="video-actions">
+                                <a href="https://youtu.be/CiAKNJZS-Vo?si=mm9NaQwkbsp3Utsm" target="_blank" class="btn btn-cyber btn-sm">
+                                    <i class="fas fa-external-link-alt me-1"></i>شاهد الفيديو
+                                </a>
+                                <button class="btn btn-outline-cyber btn-sm complete-btn" data-video-id="36">
+                                    <i class="fas fa-check me-1"></i>أكملت
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Topic 3: Exploitation Basics -->
+                <div class="topic-card">
+                    <div class="topic-title">
+                        <i class="fas fa-skull-crossbones"></i>
+                        Exploitation Basics - أساسيات الاستغلال
+                    </div>
+                    
+                    <div class="topic-goal">
+                        🎯 الهدف: تحول ثغرة بسيطة لاختراق كامل.
+                    </div>
+                    
+                    <ul class="text-list">
+                        <li><i class="fas fa-terminal"></i> Reverse Shell & Bind Shell</li>
+                        <li><i class="fas fa-user-secret"></i> Privilege Escalation (Linux & Windows)</li>
+                        <li><i class="fas fa-network-wired"></i> Post Exploitation</li>
+                        <li><i class="fas fa-random"></i> Lateral Movement</li>
+                        <li><i class="fas fa-clock"></i> Persistence (الاستمرارية)</li>
+                    </ul>
+                </div>
+
+                <!-- Topic 4: Bug Bounty & Methodology -->
+                <div class="topic-card">
+                    <div class="topic-title">
+                        <i class="fas fa-globe"></i>
+                        Bug Bounty & Methodology - منهجية العمل
+                    </div>
+                    
+                    <div class="topic-goal">
+                        🎯 الهدف: بعد المرحلة دي: تبدأ Bug Bounty عملياً.
+                    </div>
+
+                    <h6 class="mt-4 mb-3" style="color: var(--warning-color);">خطوات البداية:</h6>
+                    <ol class="text-list" style="padding-right: 20px; list-style: decimal;">
+                        <li style="border:none; padding:5px 0;">Practice الأول (التدرب على مواقع مخصصة)</li>
+                        <li style="border:none; padding:5px 0;">Bug Bounty Platforms (HackerOne, Bugcrowd)</li>
+                        <li style="border:none; padding:5px 0;">التركيز على: IDOR – XSS – Misconfigurations</li>
+                    </ol>
+                    
+                    <div class="video-list">
+                        <h5 class="video-list-title">
+                            <i class="fas fa-video me-2"></i>فيديو منهجية الفحص
+                        </h5>
+
+                        <!-- Video 37 -->
+                        <div class="video-card" data-video-id="37">
+                            <div class="video-info">
+                                <span class="video-number">37</span>
+                                <span class="video-title">طريقة الفحص (Methodology)</span>
+                                <div class="video-desc">كيف تبدأ فحص الهدف بشكل احترافي ومنهجي</div>
+                            </div>
+                            <div class="video-actions">
+                                <a href="https://youtu.be/zvJ3irTVDfc?si=YACuWu-6lnBchPay" target="_blank" class="btn btn-cyber btn-sm">
+                                    <i class="fas fa-external-link-alt me-1"></i>شاهد الفيديو
+                                </a>
+                                <button class="btn btn-outline-cyber btn-sm complete-btn" data-video-id="37">
                                     <i class="fas fa-check me-1"></i>أكملت
                                 </button>
                             </div>
@@ -1448,7 +1693,7 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // تعريف المتغيرات العامة
-            const totalVideos = 23;
+            const totalVideos = 37; // Updated Total
             let completedVideos = 0;
             const progressData = {};
             
@@ -1568,7 +1813,7 @@
                     message = 'قريب من النهاية! استمر في التركيز.';
                     color = 'var(--accent-color)';
                 } else if (percentage === 100) {
-                    message = 'ممتاز! لقد أكملت الأسبوع الأول بنجاح! 🎉';
+                    message = 'ممتاز! لقد أكملت المرحلتين بنجاح! 🎉';
                     color = 'var(--success-color)';
                 }
                 
@@ -1693,15 +1938,20 @@
                     <div class="d-flex align-items-center">
                         <i class="fas fa-trophy fa-2x me-3" style="color: var(--success-color);"></i>
                         <div>
-                            <h4 class="mb-1" style="color: var(--success-color);">تهانينا! لقد أكملت الأسبوع الأول</h4>
-                            <p class="mb-0">فريق BrightMinds فخور بإنجازك. استعد للأسبوع القادم!</p>
+                            <h4 class="mb-1" style="color: var(--success-color);">تهانينا! لقد أتممت المسار</h4>
+                            <p class="mb-0">فريق BrightMinds فخور بإنجازك. أنت جاهز للخطوة القادمة!</p>
                         </div>
                     </div>
                 `;
                 
                 // إضافة الرسالة في أعلى المحتوى
-                const weekContent = document.getElementById('week1-content');
-                weekContent.prepend(celebration);
+                // نبحث عن أول محتوى أسبوع مفتوح أو نضيفها في الأسبوع الثاني
+                let targetContent = document.querySelector('#week2-content.collapse.show') || document.querySelector('#week1-content');
+                if(targetContent) {
+                    targetContent.prepend(celebration);
+                } else {
+                    document.querySelector('main').prepend(celebration);
+                }
                 
                 // إضافة تأثير confetti
                 createConfetti();
@@ -1743,4 +1993,4 @@
         });
     </script>
 </body>
-</html>
+</html> 
